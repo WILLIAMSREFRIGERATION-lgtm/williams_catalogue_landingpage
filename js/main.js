@@ -360,6 +360,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var catalogueBottomQuoteBtn = document.getElementById('catalogueBottomQuoteBtn');
   var currentCategory = 'all';
 
+  // Synchronize category tab counts dynamically from products data
+  tabButtons.forEach(function (btn) {
+    var cat = btn.getAttribute('data-category');
+    var badge = btn.querySelector('.tab-badge');
+    if (badge) {
+      if (cat === 'all') {
+        badge.textContent = products.length;
+      } else {
+        var count = products.filter(function (p) { return p.category === cat; }).length;
+        badge.textContent = count;
+      }
+    }
+  });
+
   function renderCatalogue(category, searchFilter) {
     if (!productGrid) return;
     productGrid.innerHTML = '';
