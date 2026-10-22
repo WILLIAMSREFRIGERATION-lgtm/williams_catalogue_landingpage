@@ -16,8 +16,8 @@
   Access-Control-Allow-Origin: *
 
 /css/*
-  Cache-Control: public, max-age=2592000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /js/*
-  Cache-Control: public, max-age=2592000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
   Access-Control-Allow-Origin: *

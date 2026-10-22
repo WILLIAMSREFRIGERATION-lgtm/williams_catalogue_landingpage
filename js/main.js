@@ -360,6 +360,29 @@ document.addEventListener('DOMContentLoaded', function () {
   var catalogueBottomQuoteBtn = document.getElementById('catalogueBottomQuoteBtn');
   var currentCategory = 'all';
 
+  // Robust category matcher with aliases for full backward and forward compatibility
+  function matchCategory(prodCat, targetCat) {
+    if (!targetCat || targetCat === 'all') return true;
+    if (!prodCat) return false;
+    if (prodCat === targetCat) return true;
+
+    var aliases = {
+      'ice-cream-display-cabinets': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'ice-cream-display': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'ice-cream-tank-counters': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'refrigerated-cabinets': ['refrigerated-cabinets', 'display-cabinets', 'commercial-refrigeration'],
+      'display-cabinets': ['refrigerated-cabinets', 'display-cabinets'],
+      'commercial-refrigeration': ['refrigerated-cabinets', 'commercial-refrigeration'],
+      'drop-in': ['drop-in'],
+      'bar-counter-cells': ['bar-counter-cells']
+    };
+
+    if (aliases[targetCat] && aliases[targetCat].indexOf(prodCat) !== -1) {
+      return true;
+    }
+    return false;
+  }
+
   // Synchronize category tab counts dynamically from products data
   tabButtons.forEach(function (btn) {
     var cat = btn.getAttribute('data-category');
@@ -368,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (cat === 'all') {
         badge.textContent = products.length;
       } else {
-        var count = products.filter(function (p) { return p.category === cat; }).length;
+        var count = products.filter(function (p) { return matchCategory(p.category, cat); }).length;
         badge.textContent = count;
       }
     }
@@ -381,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var filtered = products;
 
     if (category && category !== 'all') {
-      filtered = filtered.filter(function (p) { return p.category === category; });
+      filtered = filtered.filter(function (p) { return matchCategory(p.category, category); });
     }
 
     if (searchFilter && searchFilter.trim().length > 0) {
