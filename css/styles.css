@@ -422,7 +422,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   position: relative;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 1536 / 768; /* Exact 2:1 ratio */
+  aspect-ratio: 1536 / 768; /* Exact 2:1 ratio for wide desktop displays */
   min-height: 520px;
   max-height: 820px;
   display: flex;
@@ -430,14 +430,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   justify-content: center;
   overflow: hidden;
   margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .hero-video-container {
-    aspect-ratio: auto;
-    min-height: 500px;
-    height: 70vh;
-  }
 }
 
 .hero-media-wrapper {
@@ -477,7 +469,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   z-index: 2;
 }
 
-/* Increased Transparency Overlay — Video clearly visible with subtle contrast for bottom buttons */
+/* Increased Transparency Overlay — Video clearly visible with subtle contrast for bottom buttons on desktop */
 .hero-overlay-transparent {
   position: absolute;
   inset: 0;
@@ -487,7 +479,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   cursor: default;
 }
 
-/* Buttons Placed at the Bottom End of the Video */
+/* Buttons Placed at the Bottom End of the Video on Desktop */
 .hero-bottom-actions {
   position: absolute;
   bottom: 36px;
@@ -502,19 +494,138 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 0 24px;
 }
 
-@media (max-width: 640px) {
-  .hero-bottom-actions {
-    bottom: 24px;
-    gap: 10px;
-    padding: 0 16px;
+.hero-reviews-mobile {
+  display: none;
+}
+.hero-reviews-full {
+  display: inline;
+}
+
+/* ==========================================================================
+   Mobile Optimization: Uncropped 16:9 Video & Structured Buttons Below Video
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    display: block;
+    width: 100%;
+    background-color: #0F1E33;
+  }
+
+  .hero-video-container {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    overflow: visible;
+    margin: 0;
+    background-color: #0F1E33;
   }
+
+  /* Uncropped 16:9 Video Canvas — Plays full edge-to-edge frame without letterbox or side crop */
+  .hero-media-wrapper {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  .hero-poster-img {
+    object-fit: contain;
+    background-color: #000;
+  }
+
+  .hero-youtube-iframe {
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    transform: none !important;
+    pointer-events: none;
+  }
+
+  /* Remove overlay over video on mobile so the video plays crystal clear */
+  .hero-overlay-transparent {
+    display: none !important;
+  }
+
+  /* Position buttons directly below the video: Explore + Watch side-by-side, Fast Response below */
+  .hero-bottom-actions {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    padding: 14px 14px 22px;
+    background: linear-gradient(180deg, #0F1E33 0%, #0B1626 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+    z-index: 5;
+  }
+
   .hero-bottom-actions .btn {
     width: 100%;
-    max-width: 320px;
-    padding: 12px 18px;
+    max-width: none;
+    box-sizing: border-box;
+    border-radius: var(--radius-md);
+    margin: 0;
+  }
+
+  /* Button 1: Explore Catalogue (Left side) */
+  #heroExploreCta {
+    grid-column: 1 / 2;
+    padding: 12px 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /* Button 2: Watch Stories (Right side) */
+  #heroReviewsCta {
+    grid-column: 2 / 3;
+    padding: 12px 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /* Button 3: WhatsApp Fast Response (Full width below) */
+  #heroWhatsappCta {
+    grid-column: 1 / -1;
+    padding: 13px 16px;
     font-size: 0.9375rem;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-reviews-full {
+    display: none;
+  }
+  .hero-reviews-mobile {
+    display: inline;
   }
 }
 
