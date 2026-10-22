@@ -1,0 +1,39 @@
+# Williams Refrigeration India — Production Apache / cPanel Configuration
+<IfModule mod_mime.c>
+  AddType text/html .html
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType application/json .json
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType image/jpeg .jpg .jpeg
+  AddType image/png .png
+  AddType application/pdf .pdf
+  AddType video/mp4 .mp4
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Enable Byte Range Requests for Streaming Videos & Multi-Page PDFs
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+  Header set Access-Control-Allow-Headers "*"
+  Header set Accept-Ranges "bytes"
+
+  # HTML: always validate fresh
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Static Assets: aggressive browser caching
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf|mp4|woff2)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# Disable Directory Browsing
+Options -Indexes
+
+# Fallback
+DirectoryIndex index.html
+ErrorDocument 404 /index.html
