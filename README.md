@@ -33,15 +33,14 @@ Built around authentic commercial assets, verified engineering specifications, o
    * **Commercial-Grade 304 SS:** Food-grade hygienic stainless steel construction.
    * **Eco-Friendly R290 Gas:** Low-GWP natural hydrocarbon refrigeration.
 4. **Editorial Heritage:** The story of Williams Refrigeration India led by Managing Director William S.R. and Patrick, with 3 Bangalore manufacturing hubs and 1,000+ commercial installations.
-5. **Interactive Product Catalogue (30 Verified Models across 5 Categories):**
-   * Sourced directly from verified PDF technical files in `assets/View Digital Catalogue/`.
-   * **Ice cream Display Cabinets (5 Models):** Stella (Hot Selling), Sierra ICD, Shea, Shiloh, Sonnet.
+5. **Interactive Product Catalogue (31 Verified Models across 4 Categories):**
+   * Sourced directly from verified commercial specification files & Google Drive brochure assets.
+   * **Ice cream Display Cabinets (7 Models):** Stella (Hot Selling), Sierra ICD, Shea, Shiloh, Sonnet, Smart (Best Value), Snowgel.
    * **Refrigerated cabinets (18 Models):** Skyler (Hot Selling), Sibyl (Best Value), Scenic-Prima, Shannon, Sidney, Sierra Pastry, Silya, Slavia, Steffania, Stellar, StellarSphire, Blast Freezer (Hot Selling), Hot & Cold Banquet Trolley R290, R290 Refrigerated Cabinets, R290 Refrigerated Counter, Refrigerated Cabinet - Regular, Refrigerated Counter - Regular (Best Value), Thawing Cabinets.
-   * **Drop-In (3 Models):** Pan Cooler, Prep Stations (Best Value), Dual.
+   * **Drop-In (4 Models):** Drop-In Series (Hot Selling - Official Catalogue), Pan Cooler, Prep Stations (Best Value), Dual.
    * **Bar Counter Cells (2 Models):** Back Bar Cooler (Hot Selling), Wine Chiller.
-   * **Ice cream Tank Counters (2 Models):** Smart (Best Value), Snowgel.
    * **Instant Vector Blueprint Canvas:** Generates immediate architectural previews so cards never appear blank while PDF.js loads.
-   * **On-Demand First-Page PDF Render:** Uses client-side Mozilla PDF.js via `IntersectionObserver` with in-memory WebP caching.
+   * **On-Demand First-Page PDF Render & Cloud Stream:** Seamless in-site viewing with direct Google Drive cloud streaming for large catalogs.
    * **URL Hash State Synchronization:** `#category=...` synced with `history.pushState` and `window.onpopstate` for native browser back-button navigation.
 6. **In-Site Internal PDF Viewer:**
    * Modal stage keeping visitors inside the Williams experience.

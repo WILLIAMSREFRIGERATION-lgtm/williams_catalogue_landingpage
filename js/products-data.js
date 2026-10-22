@@ -1,16 +1,14 @@
 /**
  * Williams Refrigeration India — Structured Product Catalogue Data
- * Sourced strictly from real PDF assets under:
- * "assets/View Digital Catalogue/"
+ * Sourced strictly from verified commercial technical files & cloud brochure assets.
  *
- * 5 Core Categories:
- * 1. Ice cream Display Cabinets (5 Products)
+ * 4 Core Categories:
+ * 1. Ice cream Display Cabinets (7 Products - includes Gelato Showcases & Tank Counters)
  * 2. Refrigerated cabinets (18 Products)
- * 3. Drop-In (3 Products)
+ * 3. Drop-In (4 Products - includes new Drop-In Series Catalogue)
  * 4. Bar Counter Cells (2 Products)
- * 5. Ice cream Tank Counters (2 Products)
  *
- * Total: 30 Genuine Commercial Models
+ * Total: 31 Genuine Commercial Models
  */
 
 window.WILLIAMS_CATEGORIES = [
@@ -19,7 +17,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'ice-cream-display-cabinets',
     name: 'Ice cream Display Cabinets',
     folderName: 'Ice Cream Display',
-    productCount: 5
+    productCount: 7
   },
   {
     id: 'refrigerated-cabinets',
@@ -33,20 +31,13 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'drop-in',
     name: 'Drop-In',
     folderName: 'Commercial Refrigerations',
-    productCount: 3
+    productCount: 4
   },
   {
     id: 'bar-counter-cells',
     slug: 'bar-counter-cells',
     name: 'Bar Counter Cells',
     folderName: 'Commercial Refrigerations',
-    productCount: 2
-  },
-  {
-    id: 'ice-cream-tank-counters',
-    slug: 'ice-cream-tank-counters',
-    name: 'Ice cream Tank Counters',
-    folderName: 'Ice Cream Display',
     productCount: 2
   }
 ];
@@ -256,9 +247,31 @@ window.WILLIAMS_PRODUCTS = [
   },
 
   /* =========================================================================
-     CATEGORY: ICE CREAM DISPLAY CABINETS (5 Real Products)
-     Display showcases specifically engineered for gelato & ice cream
+     CATEGORY: ICE CREAM DISPLAY CABINETS (7 Real Products)
+     Display showcases & tank counters engineered for gelato & ice cream
      ========================================================================= */
+  {
+    id: 'ice-stella',
+    slug: 'stella',
+    name: 'Stella',
+    category: 'ice-cream-display-cabinets',
+    categoryLabel: 'Ice cream Display Cabinets',
+    pdfFileName: 'Stella.pdf',
+    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Stella.pdf',
+    pdfSizeKB: 893.2,
+    badge: 'Hot Selling'
+  },
+  {
+    id: 'ice-sierra-icd',
+    slug: 'sierra-icd',
+    name: 'Sierra ICD',
+    category: 'ice-cream-display-cabinets',
+    categoryLabel: 'Ice cream Display Cabinets',
+    pdfFileName: 'Sierra ICD.pdf',
+    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Sierra ICD.pdf',
+    pdfSizeKB: 33094.6,
+    badge: null
+  },
   {
     id: 'ice-shea',
     slug: 'shea',
@@ -282,17 +295,6 @@ window.WILLIAMS_PRODUCTS = [
     badge: null
   },
   {
-    id: 'ice-sierra-icd',
-    slug: 'sierra-icd',
-    name: 'Sierra ICD',
-    category: 'ice-cream-display-cabinets',
-    categoryLabel: 'Ice cream Display Cabinets',
-    pdfFileName: 'Sierra ICD.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Sierra ICD.pdf',
-    pdfSizeKB: 33094.6,
-    badge: null
-  },
-  {
     id: 'ice-sonnet',
     slug: 'sonnet',
     name: 'Sonnet',
@@ -304,21 +306,43 @@ window.WILLIAMS_PRODUCTS = [
     badge: null
   },
   {
-    id: 'ice-stella',
-    slug: 'stella',
-    name: 'Stella',
+    id: 'ice-smart',
+    slug: 'smart',
+    name: 'Smart',
     category: 'ice-cream-display-cabinets',
     categoryLabel: 'Ice cream Display Cabinets',
-    pdfFileName: 'Stella.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Stella.pdf',
-    pdfSizeKB: 893.2,
-    badge: 'Hot Selling'
+    pdfFileName: 'Smart.pdf',
+    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Smart.pdf',
+    pdfSizeKB: 785.5,
+    badge: 'Best Value'
+  },
+  {
+    id: 'ice-snowgel',
+    slug: 'snowgel',
+    name: 'Snowgel',
+    category: 'ice-cream-display-cabinets',
+    categoryLabel: 'Ice cream Display Cabinets',
+    pdfFileName: 'Snowgel.pdf',
+    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Snowgel.pdf',
+    pdfSizeKB: 1318.7,
+    badge: null
   },
 
   /* =========================================================================
-     CATEGORY: DROP-IN (3 Real Products)
-     Flush drop-in pan wells and prep counters
+     CATEGORY: DROP-IN (4 Real Products)
+     Modular flush drop-in wells, Drop-In Series catalogue & prep counters
      ========================================================================= */
+  {
+    id: 'drop-series',
+    slug: 'drop-in-series',
+    name: 'Drop-In Series',
+    category: 'drop-in',
+    categoryLabel: 'Drop-In',
+    pdfFileName: 'Dropin_Series_New_1 Draft_1.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1sLAUF4wa0qYxs6N5FASjnNYBZECKWtjs/view?usp=sharing',
+    pdfSizeKB: 164374.0,
+    badge: 'Hot Selling'
+  },
   {
     id: 'comm-pan-cooler',
     slug: 'pan-cooler',
@@ -378,33 +402,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/wine chiller.pdf',
     pdfSizeKB: 562.3,
     badge: null
-  },
-
-  /* =========================================================================
-     CATEGORY: ICE CREAM TANK COUNTERS (2 Real Products)
-     Static glycol tank counters and pozzetti storage
-     ========================================================================= */
-  {
-    id: 'ice-smart',
-    slug: 'smart',
-    name: 'Smart',
-    category: 'ice-cream-tank-counters',
-    categoryLabel: 'Ice cream Tank Counters',
-    pdfFileName: 'Smart.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Smart.pdf',
-    pdfSizeKB: 785.5,
-    badge: 'Best Value'
-  },
-  {
-    id: 'ice-snowgel',
-    slug: 'snowgel',
-    name: 'Snowgel',
-    category: 'ice-cream-tank-counters',
-    categoryLabel: 'Ice cream Tank Counters',
-    pdfFileName: 'Snowgel.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Snowgel.pdf',
-    pdfSizeKB: 1318.7,
-    badge: null
   }
 ];
 
@@ -430,29 +427,32 @@ var WILLIAMS_PAGE_COUNTS = {
   'refrigerated-counter-regular': 12,
   'thawing-cabinets': 8,
 
-  // Ice Cream Display Cabinets (5 models)
+  // Ice Cream Display Cabinets (7 models - includes Tank Counters)
+  'stella': 6,
+  'sierra-icd': 6,
   'shea': 6,
   'shiloh': 8,
-  'sierra-icd': 6,
   'sonnet': 8,
-  'stella': 6,
+  'smart': 6,
+  'snowgel': 6,
 
-  // Drop-In (3 models)
+  // Drop-In (4 models)
+  'drop-in-series': 16,
   'pan-cooler': 8,
   'prep-stations': 8,
   'dual': 8,
 
   // Bar Counter Cells (2 models)
   'back-bar-cooler': 8,
-  'wine-chiller': 12,
-
-  // Ice Cream Tank Counters (2 models)
-  'smart': 6,
-  'snowgel': 6
+  'wine-chiller': 12
 };
 
 // Verified Cloud Google Drive Brochure Links for Fast Streaming & Direct Downloads
 var WILLIAMS_DRIVE_LINKS = {
+  // Drop-In Series (Official Drive Asset)
+  'drop-in-series': '1sLAUF4wa0qYxs6N5FASjnNYBZECKWtjs',
+
+  // Other Commercial Equipment
   'back-bar-cooler': '1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd',
   'blast-freezer': '11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8',
   'dual': '1yJ1bSu7OphcZSWF67q8A7knNiPZPSVX-',

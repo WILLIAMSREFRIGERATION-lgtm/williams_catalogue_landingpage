@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
         '</div>' +
         '<h3 style="font-size:1.25rem; font-weight:600; margin-bottom:8px; color:var(--text);">No matching Williams models found</h3>' +
-        '<p style="font-size:0.9375rem; color:var(--text-muted); max-width:460px; margin:0 auto 20px;">We couldn&rsquo;t find equipment matching &ldquo;' + (searchFilter || '') + '&rdquo;. Try clearing your search keyword or browse all 30 models.</p>' +
+        '<p style="font-size:0.9375rem; color:var(--text-muted); max-width:460px; margin:0 auto 20px;">We couldn&rsquo;t find equipment matching &ldquo;' + (searchFilter || '') + '&rdquo;. Try clearing your search keyword or browse all ' + products.length + ' models.</p>' +
         '<button type="button" class="btn btn-outline btn-sm" id="emptyResetFilterBtn">Reset All Filters</button>';
       productGrid.appendChild(emptyBox);
 
