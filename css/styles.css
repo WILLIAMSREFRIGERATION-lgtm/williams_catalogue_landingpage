@@ -645,9 +645,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    2. Williams Company Score Strip ("Our Legacy in Numbers")
    ========================================================================== */
 .scores-section {
-  background-color: var(--surface);
+  background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
   border-bottom: 1px solid var(--border);
-  padding: 40px 0;
+  padding: 44px 0 40px;
+  position: relative;
 }
 
 .scores-grid {
@@ -670,26 +671,91 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .score-card {
+  position: relative;
   background-color: var(--white);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(83, 120, 179, 0.16);
   border-radius: var(--radius-md);
-  padding: 22px 18px;
+  padding: 24px 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  gap: 10px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(15, 30, 51, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.score-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-blue) 0%, #3B82F6 100%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .score-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(83, 120, 179, 0.15);
   border-color: var(--brand-blue);
+}
+
+.score-card:hover::before {
+  opacity: 1;
+}
+
+.score-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(83, 120, 179, 0.12) 0%, rgba(83, 120, 179, 0.22) 100%);
+  color: var(--brand-blue-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 2px;
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.score-card:hover .score-icon-box {
+  transform: scale(1.08);
+  background: var(--brand-blue);
+  color: #FFFFFF;
+}
+
+.score-value {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--brand-blue-deep);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.score-number {
+  display: inline-block;
+  min-width: 1.5ch;
+  transition: color var(--transition-fast);
+}
+
+.score-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  font-weight: 500;
+  margin-top: -2px;
 }
 
 @media (max-width: 640px) {
   .scores-section {
-    padding: 28px 0;
+    padding: 24px 0 28px;
   }
   .scores-grid {
     grid-template-columns: 1fr 1fr;
@@ -699,35 +765,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     grid-column: 1 / -1;
   }
   .score-card {
-    padding: 16px 12px;
+    padding: 16px 14px;
+    gap: 6px;
   }
-}
-
-.score-icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background-color: var(--brand-blue-soft);
-  color: var(--brand-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-}
-
-.score-value {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--brand-blue-deep);
-  line-height: 1.15;
-}
-
-.score-label {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  font-weight: 500;
+  .score-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+  }
+  .score-value {
+    font-size: 1.25rem;
+  }
+  .score-label {
+    font-size: 0.75rem;
+  }
 }
 
 /* ==========================================================================

@@ -1716,4 +1716,86 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  /* ==========================================================================
+     9. Smooth Company Score Counter Animation (Zero to Number)
+     ========================================================================== */
+  var initScoreCounters = function () {
+    var scoreElements = document.querySelectorAll('.score-number');
+    if (!scoreElements || scoreElements.length === 0) return;
+
+    var formatNumber = function (val, formatType) {
+      var rounded = Math.floor(val);
+      if (formatType === 'comma') {
+        return rounded.toLocaleString('en-US');
+      }
+      if (formatType === 'indian') {
+        var s = rounded.toString();
+        if (s.length <= 3) return s;
+        var lastThree = s.substring(s.length - 3);
+        var otherNumbers = s.substring(0, s.length - 3);
+        return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + lastThree;
+      }
+      return rounded.toString();
+    };
+
+    var animateCount = function (el) {
+      var target = parseFloat(el.getAttribute('data-target'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var formatType = el.getAttribute('data-format') || 'standard';
+      if (isNaN(target)) return;
+
+      var duration = 1800; // ms
+      var startTime = null;
+
+      // Ease-out expo curve for ultra-smooth deceleration
+      var easeOutExpo = function (t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      };
+
+      var step = function (timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var easedProgress = easeOutExpo(progress);
+        var currentVal = easedProgress * target;
+
+        el.textContent = formatNumber(currentVal, formatType) + suffix;
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = formatNumber(target, formatType) + suffix;
+        }
+      };
+
+      // Initialize counter to 0 with suffix
+      el.textContent = '0' + suffix;
+      window.requestAnimationFrame(step);
+    };
+
+    var scoresSection = document.getElementById('scores-section');
+    if (!scoresSection) {
+      scoreElements.forEach(animateCount);
+      return;
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            scoreElements.forEach(animateCount);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -20px 0px'
+      });
+      observer.observe(scoresSection);
+    } else {
+      scoreElements.forEach(animateCount);
+    }
+  };
+
+  initScoreCounters();
 });

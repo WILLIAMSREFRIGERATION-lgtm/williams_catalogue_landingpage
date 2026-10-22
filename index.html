@@ -42,9 +42,10 @@
   <link rel="icon" type="image/png" href="assets/logos/williams-logo.png">
   <meta name="theme-color" content="#0F1E33">
 
-  <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="css/tokens.css?v=5.3">
-  <link rel="stylesheet" href="css/styles.css?v=5.3">
+  <!-- Core Stylesheets & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/tokens.css?v=5.4">
+  <link rel="stylesheet" href="css/styles.css?v=5.4">
 
 
 
@@ -152,42 +153,52 @@
         <div class="scores-grid">
           <div class="score-card">
             <div class="score-icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <i class="fa-solid fa-award"></i>
             </div>
-            <div class="score-value">30+ Years</div>
+            <div class="score-value">
+              <span class="score-number" data-target="30" data-suffix="+" data-format="standard">30+</span>
+            </div>
             <div class="score-label">Of Manufacturing Excellence</div>
           </div>
 
           <div class="score-card">
             <div class="score-icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <i class="fa-solid fa-store"></i>
             </div>
-            <div class="score-value">10,000+ Outlets</div>
+            <div class="score-value">
+              <span class="score-number" data-target="10000" data-suffix="+" data-format="comma">10,000+</span>
+            </div>
             <div class="score-label">Empowered Across India</div>
           </div>
 
           <div class="score-card">
             <div class="score-icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <i class="fa-solid fa-gears"></i>
             </div>
-            <div class="score-value">5,00,000+ Machines</div>
+            <div class="score-value">
+              <span class="score-number" data-target="500000" data-suffix="+" data-format="indian">5,00,000+</span>
+            </div>
             <div class="score-label">Manufactured with Precision</div>
           </div>
 
           <div class="score-card">
             <div class="score-icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <i class="fa-solid fa-handshake"></i>
             </div>
-            <div class="score-value">300+ Trusted Brands</div>
+            <div class="score-value">
+              <span class="score-number" data-target="300" data-suffix="+" data-format="standard">300+</span>
+            </div>
             <div class="score-label">Choose Williams Solutions</div>
           </div>
 
           <div class="score-card">
             <div class="score-icon-box" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="2"/><line x1="15" y1="22" x2="15" y2="2"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+              <i class="fa-solid fa-industry"></i>
             </div>
-            <div class="score-value">2 Manufacturing Facilities</div>
-            <div class="score-label">Bangalore, India</div>
+            <div class="score-value">
+              <span class="score-number" data-target="2" data-suffix="" data-format="standard">2</span>
+            </div>
+            <div class="score-label">Manufacturing Facilities (Bangalore)</div>
           </div>
         </div>
       </div>
@@ -216,13 +227,7 @@
               <strong>30+ Years of Excellence in Commercial Refrigeration &amp; HoReCa Solutions.</strong>
             </p>
             <p class="legacy-body">
-              Since 1997, Williams Refrigeration India has been delivering innovative, reliable, and high-performance commercial refrigeration, food display solutions, and commercial kitchen equipment for businesses across India.
-            </p>
-            <p class="legacy-body">
-              With <strong>2 advanced manufacturing facilities in Bangalore</strong>, we combine precision engineering, innovative design, and quality craftsmanship to create solutions tailored to the evolving needs of bakeries, sweet shops, caf&eacute;s, hotels, restaurants, supermarkets, and the HoReCa industry.
-            </p>
-            <p class="legacy-body">
-              From premium refrigerated display counters to professional commercial kitchen equipment, every Williams product is engineered for durability, efficiency, and performance &mdash; helping businesses operate smarter and grow stronger.
+              Since 1997, Williams Refrigeration India operates <strong>2 advanced manufacturing facilities in Bangalore</strong> &mdash; combining precision engineering and robust craftsmanship to produce high-performance commercial refrigeration, food display counters, and kitchen equipment for bakeries, cafés, restaurants, hotels, and supermarkets across India.
             </p>
 
             <div class="legacy-quote-card">
@@ -784,8 +789,8 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/analytics.js?v=5.1"></script>
-  <script src="js/products-data.js?v=5.1"></script>
-  <script src="js/main.js?v=5.1"></script>
+  <script src="js/analytics.js?v=5.4"></script>
+  <script src="js/products-data.js?v=5.4"></script>
+  <script src="js/main.js?v=5.4"></script>
 </body>
 </html>
