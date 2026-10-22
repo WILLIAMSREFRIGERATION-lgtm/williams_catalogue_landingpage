@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://www.williamsrefrigeration.co.in/sitemap.xml

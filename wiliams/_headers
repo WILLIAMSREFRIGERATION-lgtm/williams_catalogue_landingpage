@@ -1,0 +1,23 @@
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Accept-Ranges: bytes
+  X-Content-Type-Options: nosniff
+
+/
+  Cache-Control: no-cache, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable
+  Access-Control-Allow-Origin: *
+
+/css/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/js/*
+  Cache-Control: public, max-age=2592000, immutable
+  Access-Control-Allow-Origin: *
