@@ -525,7 +525,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     background-color: #0F1E33;
   }
 
-  /* Uncropped 16:9 Video Canvas — Plays full edge-to-edge frame without letterbox or side crop */
+  /* Uncropped 16:9 Video Canvas with edge-overscan to hide YouTube title & player chrome */
   .hero-media-wrapper {
     position: relative;
     inset: auto;
@@ -539,22 +539,34 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   .hero-poster-img {
-    object-fit: contain;
+    object-fit: cover;
     background-color: #000;
   }
 
+  /* Scale slightly (122% x 138%) to push YouTube's top title bar and bottom controls off-screen */
   .hero-youtube-iframe {
     position: absolute;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    min-width: 100% !important;
-    min-height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    transform: none !important;
-    pointer-events: none;
+    top: 50% !important;
+    left: 50% !important;
+    width: 124% !important;
+    height: 142% !important;
+    min-width: 124% !important;
+    min-height: 142% !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: none !important;
+    border: 0;
+  }
+
+  /* Touch Shield: intercepts all touches over video so YouTube controls/pause never trigger */
+  .hero-touch-shield {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: transparent;
+    pointer-events: auto;
+    cursor: default;
   }
 
   /* Remove overlay over video on mobile so the video plays crystal clear */
@@ -630,69 +642,92 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 /* ==========================================================================
-   2. Williams Highlights Strip
+   2. Williams Company Score Strip ("Our Legacy in Numbers")
    ========================================================================== */
-.highlights-section {
+.scores-section {
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
+  padding: 40px 0;
 }
 
-.highlights-grid {
+.scores-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 @media (min-width: 640px) {
-  .highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .scores-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .highlights-grid {
-    grid-template-columns: repeat(4, 1fr);
+  .scores-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
   }
 }
 
-.highlight-card {
+.score-card {
   background-color: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 22px 18px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.highlight-card:hover {
+.score-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
+  border-color: var(--brand-blue);
 }
 
-.highlight-icon-box {
-  width: 44px;
-  height: 44px;
+@media (max-width: 640px) {
+  .scores-section {
+    padding: 28px 0;
+  }
+  .scores-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .score-card:last-child {
+    grid-column: 1 / -1;
+  }
+  .score-card {
+    padding: 16px 12px;
+  }
+}
+
+.score-icon-box {
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-sm);
   background-color: var(--brand-blue-soft);
   color: var(--brand-blue);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 4px;
 }
 
-.highlight-content h3 {
-  font-size: 1.0625rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
+.score-value {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--brand-blue-deep);
+  line-height: 1.15;
 }
 
-.highlight-content p {
-  font-size: 0.875rem;
+.score-label {
+  font-size: 0.8125rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -801,7 +836,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 0.9375rem;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .legacy-quote-card {
@@ -809,7 +844,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-left: 3px solid var(--brand-blue);
   padding: 16px 20px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
 .legacy-quote-card p {
@@ -817,28 +853,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: var(--text);
   font-style: italic;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 
 .legacy-quote-author {
   font-size: 0.8125rem;
-  color: var(--brand-blue);
-  font-weight: 500;
+  color: var(--brand-blue-deep);
+  font-weight: 600;
 }
 
-.legacy-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.legacy-pill {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--text);
-  background-color: var(--surface-alt);
-  padding: 6px 12px;
+.legacy-motto-banner {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--brand-blue-soft);
+  border-left: 3px solid var(--brand-blue);
   border-radius: var(--radius-xs);
-  border: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--brand-blue-deep);
+  display: inline-block;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
