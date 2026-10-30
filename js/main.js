@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ==========================================================================
      2. PDF Page 1 Thumbnail Engine & Minimal Product Card Builder
      ========================================================================== */
+  // Clear legacy sessionStorage thumbnail cache so updated authentic covers render fresh
+  try {
+    ['sherin', 'stellina', 'drop-in-series'].forEach(function (slugKey) {
+      sessionStorage.removeItem('wm_thumb_' + slugKey);
+    });
+  } catch (e) {}
+
   var pdfThumbCache = {}; // Cache of generated WebP/canvas data URLs by prod.slug
   var pdfArrayBufferCache = {}; // Cache of downloaded binary ArrayBuffers by prod.pdfPath
   var pdfRenderQueue = []; // Controlled thumbnail render queue
@@ -275,6 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Body HTML: strictly product name, "Catalogue ->" button and WhatsApp direct fast response button
     var bodyHtml =
       '<div class="product-body">' +
+        '<span class="product-category-tag">' + prod.categoryLabel + '</span>' +
         '<h3 class="product-name">' + prod.name + '</h3>' +
         '<div class="product-actions-bar">' +
           '<button type="button" class="product-action-link" aria-label="View ' + prod.name + ' digital catalogue">' +
@@ -283,7 +291,8 @@ document.addEventListener('DOMContentLoaded', function () {
           '</button>' +
           '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="product-whatsapp-btn" aria-label="Direct WhatsApp message for ' + prod.name + '">' +
             '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.54 1.811.83 2.796.83 3.18 0 5.767-2.587 5.767-5.766.001-3.187-2.575-5.817-5.767-6.017zm7.533 5.766c0 4.14-3.374 7.514-7.533 7.514-1.309 0-2.548-.344-3.626-.951l-4.405 1.155 1.176-4.291c-.705-1.139-1.107-2.483-1.107-3.927 0-4.14 3.374-7.514 7.533-7.514 4.16 0 7.533 3.374 7.533 7.514zm-4.209 2.553c-.22-.11-1.301-.642-1.503-.715-.202-.073-.349-.11-.496.11-.147.221-.57 0.716-.698.863-.129.147-.257.165-.477.055-.22-.11-.931-.343-1.774-1.095-.655-.584-1.098-1.306-1.226-1.526-.129-.221-.014-.34.096-.45.099-.099.22-.257.33-.385.11-.129.147-.221.221-.368.073-.147.037-.275-.018-.385-.055-.11-.496-1.194-.679-1.636-.179-.43-.36-.372-.496-.379-.129-.007-.275-.009-.422-.009-.147 0-.385.055-.587.275-.202.221-.771.753-.771 1.837 0 1.084.789 2.13 0.899 2.277.11.147 1.552 2.37 3.76 3.321.525.227.935.362 1.255.464.528.168 1.008.144 1.388.088.423-.063 1.301-.532 1.485-1.047.183-.514.183-.955.128-1.047-.054-.092-.201-.147-.421-.257z"/></svg>' +
-            '<span>Fast Response</span>' +
+            '<span class="wa-label-desktop">Fast Response</span>' +
+            '<span class="wa-label-mobile">Quote</span>' +
           '</a>' +
         '</div>' +
       '</div>';
@@ -367,14 +376,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (prodCat === targetCat) return true;
 
     var aliases = {
-      'ice-cream-display-cabinets': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
-      'ice-cream-display': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
-      'ice-cream-tank-counters': ['ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
-      'refrigerated-cabinets': ['refrigerated-cabinets', 'display-cabinets', 'commercial-refrigeration'],
-      'display-cabinets': ['refrigerated-cabinets', 'display-cabinets'],
-      'commercial-refrigeration': ['refrigerated-cabinets', 'commercial-refrigeration'],
-      'drop-in': ['drop-in'],
-      'bar-counter-cells': ['bar-counter-cells']
+      'ice-cream': ['ice-cream', 'ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'ice-cream-display-cabinets': ['ice-cream', 'ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'ice-cream-display': ['ice-cream', 'ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'ice-cream-tank-counters': ['ice-cream', 'ice-cream-display-cabinets', 'ice-cream-display', 'ice-cream-tank-counters'],
+      'display-cabinat': ['display-cabinat', 'display-cabinets', 'display-counter', 'display-counter-sweets-namkeens'],
+      'display-cabinets': ['display-cabinat', 'display-cabinets', 'display-counter', 'display-counter-sweets-namkeens'],
+      'refrigeration-cabinat': ['refrigeration-cabinat', 'refrigerated-cabinets', 'refrigeration-cabinet', 'commercial-refrigeration'],
+      'refrigerated-cabinets': ['refrigeration-cabinat', 'refrigerated-cabinets', 'refrigeration-cabinet', 'commercial-refrigeration'],
+      'commercial-refrigeration': ['refrigeration-cabinat', 'refrigerated-cabinets', 'commercial-refrigeration'],
+      'drop-in': ['drop-in', 'drop-in-series'],
+      'drop-in-series': ['drop-in', 'drop-in-series'],
+      'confectionery': ['confectionery', 'confectionaery', 'confectionery-pastries'],
+      'confectionaery': ['confectionery', 'confectionaery', 'confectionery-pastries'],
+      'bar-counter-cells': ['refrigeration-cabinat', 'bar-counter-cells']
     };
 
     if (aliases[targetCat] && aliases[targetCat].indexOf(prodCat) !== -1) {
@@ -536,7 +551,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var pdfDocBadge = document.getElementById('pdfViewerDocBadge');
   var pdfShareLinkBtn = document.getElementById('pdfShareLinkBtn');
   var pdfRequestQuoteBtn = document.getElementById('pdfRequestQuoteBtn');
-  var pdfDriveBtn = document.getElementById('pdfDriveBtn');
+  var pdfMobileShareBtn = document.getElementById('pdfMobileShareBtn');
+  var pdfMobileQuoteBtn = document.getElementById('pdfMobileQuoteBtn');
   var pdfGdriveFrame = document.getElementById('pdfGdriveFrame');
 
   var pdfCurrentPageNum = document.getElementById('pdfCurrentPageNum');
@@ -577,14 +593,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (pdfDocBadge) pdfDocBadge.textContent = totalPages + ' Pages';
 
     // Dynamically wire WhatsApp button in PDF viewer with active product name
+    var waDocMsg = encodeURIComponent('Hello Williams Refrigeration, I would like to request pricing and specifications for ' + prod.name + ' (' + prod.categoryLabel + '). Please share details.');
+    var waDocHref = 'https://wa.me/919844013768?text=' + waDocMsg;
     if (pdfRequestQuoteBtn) {
-      var waDocMsg = encodeURIComponent('Hello Williams Refrigeration, I would like to request pricing and specifications for ' + prod.name + ' (' + prod.categoryLabel + '). Please share details.');
-      pdfRequestQuoteBtn.href = 'https://wa.me/919844013768?text=' + waDocMsg;
+      pdfRequestQuoteBtn.href = waDocHref;
     }
-
-    // Wire Google Drive download/view button
-    if (pdfDriveBtn) {
-      pdfDriveBtn.href = prod.driveUrl || (prod.driveId ? ('https://drive.google.com/file/d/' + prod.driveId + '/view?usp=drive_link') : '#');
+    if (pdfMobileQuoteBtn) {
+      pdfMobileQuoteBtn.href = waDocHref;
     }
 
     if (pdfCurrentPageNum) pdfCurrentPageNum.textContent = currentPage;
@@ -595,7 +610,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Direct in-site Google Drive brochure frame — shows smoothly on website without blocking loading overlay
+    var popoutShield = pdfViewer.querySelector('.pdf-popout-shield');
     if (prod.driveId && pdfGdriveFrame) {
+      pdfViewer.classList.remove('local-brochure-mode');
+      pdfGdriveFrame.style.display = 'block';
+      if (popoutShield) popoutShield.style.display = 'block';
       var previewUrl = prod.drivePreviewUrl || ('https://drive.google.com/file/d/' + prod.driveId + '/preview');
       if (pdfGdriveFrame.src !== previewUrl) {
         pdfGdriveFrame.src = previewUrl;
@@ -606,63 +625,101 @@ document.addEventListener('DOMContentLoaded', function () {
       if (pdfDocumentContainer) pdfDocumentContainer.style.display = 'none';
       if (pdfFloatingPagePill) pdfFloatingPagePill.style.display = 'none';
     } else {
-      // Local fallback using PDF.js continuous stream
-      if (pdfDocumentContainer) pdfDocumentContainer.style.display = '';
+      pdfViewer.classList.add('local-brochure-mode');
+      if (pdfGdriveFrame) {
+        pdfGdriveFrame.src = 'about:blank';
+        pdfGdriveFrame.style.display = 'none';
+      }
+      if (popoutShield) popoutShield.style.display = 'none';
+      if (pdfLoadingOverlay) pdfLoadingOverlay.style.display = 'none';
+
+      if (pdfDocumentContainer) pdfDocumentContainer.style.display = 'flex';
       if (pdfFloatingPagePill) pdfFloatingPagePill.style.display = '';
       pdfDocumentContainer.innerHTML = '';
 
-      for (var p = 1; p <= totalPages; p++) {
-        var pageItem = document.createElement('div');
-        pageItem.className = 'pdf-page-item';
-        pageItem.id = 'pdfPageItem-' + p;
-        pageItem.setAttribute('data-page', p);
+      if (prod.localBrochureDir) {
+        for (var lp = 1; lp <= totalPages; lp++) {
+          var lPageItem = document.createElement('div');
+          lPageItem.className = 'pdf-page-item';
+          lPageItem.id = 'pdfPageItem-' + lp;
+          lPageItem.setAttribute('data-page', lp);
 
-        var meta = document.createElement('div');
-        meta.className = 'pdf-page-header-meta';
-        meta.innerHTML = '<span class="pdf-page-num-label">Page ' + p + ' of ' + totalPages + '</span>';
+          var lMeta = document.createElement('div');
+          lMeta.className = 'pdf-page-header-meta';
+          lMeta.innerHTML = '<span class="pdf-page-num-label">Page ' + lp + ' of ' + totalPages + '</span>';
 
-        var wrapper = document.createElement('div');
-        wrapper.className = 'pdf-page-canvas-wrapper';
-        wrapper.id = 'pdfCanvasWrapper-' + p;
+          var lWrapper = document.createElement('div');
+          lWrapper.className = 'pdf-page-canvas-wrapper';
+          lWrapper.style.minHeight = 'auto';
 
-        var canvas = document.createElement('canvas');
-        canvas.className = 'pdf-page-canvas';
-        canvas.id = 'pdfCanvasPage-' + p;
+          var lImg = document.createElement('img');
+          lImg.className = 'pdf-page-cover-img';
+          lImg.alt = prod.name + ' specification page ' + lp + ' of ' + totalPages;
+          lImg.loading = lp <= 2 ? 'eager' : 'lazy';
+          lImg.src = prod.localBrochureDir + '/page-' + lp + '.jpg?v=5';
 
-        var skeleton = document.createElement('div');
-        skeleton.className = 'pdf-page-skeleton';
-        skeleton.id = 'pdfSkeleton-' + p;
-        skeleton.innerHTML = '<div class="pdf-spinner" style="width:28px; height:28px; border-width:2px;"></div><span>Rendering Page ' + p + '...</span>';
+          lWrapper.appendChild(lImg);
+          lPageItem.appendChild(lMeta);
+          lPageItem.appendChild(lWrapper);
+          pdfDocumentContainer.appendChild(lPageItem);
+        }
+        if (pdfScrollViewport) {
+          pdfScrollViewport.scrollTop = 0;
+        }
+      } else {
+        for (var p = 1; p <= totalPages; p++) {
+          var pageItem = document.createElement('div');
+          pageItem.className = 'pdf-page-item';
+          pageItem.id = 'pdfPageItem-' + p;
+          pageItem.setAttribute('data-page', p);
 
-        if (p === 1 && prod.image) {
-          var coverImg = document.createElement('img');
-          coverImg.className = 'pdf-page-cover-img';
-          coverImg.id = 'pdfCoverImg-1';
-          coverImg.alt = prod.name + ' specification page 1';
-          coverImg.src = prod.image;
-          wrapper.appendChild(coverImg);
-          skeleton.classList.add('hidden');
+          var meta = document.createElement('div');
+          meta.className = 'pdf-page-header-meta';
+          meta.innerHTML = '<span class="pdf-page-num-label">Page ' + p + ' of ' + totalPages + '</span>';
+
+          var wrapper = document.createElement('div');
+          wrapper.className = 'pdf-page-canvas-wrapper';
+          wrapper.id = 'pdfCanvasWrapper-' + p;
+
+          var canvas = document.createElement('canvas');
+          canvas.className = 'pdf-page-canvas';
+          canvas.id = 'pdfCanvasPage-' + p;
+
+          var skeleton = document.createElement('div');
+          skeleton.className = 'pdf-page-skeleton';
+          skeleton.id = 'pdfSkeleton-' + p;
+          skeleton.innerHTML = '<div class="pdf-spinner" style="width:28px; height:28px; border-width:2px;"></div><span>Rendering Page ' + p + '...</span>';
+
+          if (p === 1 && prod.image) {
+            var coverImg = document.createElement('img');
+            coverImg.className = 'pdf-page-cover-img';
+            coverImg.id = 'pdfCoverImg-1';
+            coverImg.alt = prod.name + ' specification page 1';
+            coverImg.src = prod.image;
+            wrapper.appendChild(coverImg);
+            skeleton.classList.add('hidden');
+          }
+
+          wrapper.appendChild(canvas);
+          wrapper.appendChild(skeleton);
+
+          pageItem.appendChild(meta);
+          pageItem.appendChild(wrapper);
+          pdfDocumentContainer.appendChild(pageItem);
         }
 
-        wrapper.appendChild(canvas);
-        wrapper.appendChild(skeleton);
-
-        pageItem.appendChild(meta);
-        pageItem.appendChild(wrapper);
-        pdfDocumentContainer.appendChild(pageItem);
+        loadPdfDoc(prod).then(function (pdfDoc) {
+          activePdfDoc = pdfDoc;
+          if (pdfDoc.numPages && pdfDoc.numPages !== totalPages) {
+            totalPages = pdfDoc.numPages;
+            if (pdfTotalPages) pdfTotalPages.textContent = totalPages;
+            if (pdfDocBadge) pdfDocBadge.textContent = totalPages + ' Pages';
+          }
+          renderAllDocumentPages(pdfDoc);
+        })['catch'](function (err) {
+          console.warn('PDF document load note:', err);
+        });
       }
-
-      loadPdfDoc(prod).then(function (pdfDoc) {
-        activePdfDoc = pdfDoc;
-        if (pdfDoc.numPages && pdfDoc.numPages !== totalPages) {
-          totalPages = pdfDoc.numPages;
-          if (pdfTotalPages) pdfTotalPages.textContent = totalPages;
-          if (pdfDocBadge) pdfDocBadge.textContent = totalPages + ' Pages';
-        }
-        renderAllDocumentPages(pdfDoc);
-      })['catch'](function (err) {
-        console.warn('PDF document load note:', err);
-      });
     }
   }
 
@@ -833,12 +890,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var origText = shareBtnText ? shareBtnText.textContent : 'Share Link';
     if (shareBtnText) shareBtnText.textContent = '✓ Copied!';
 
+    var mobileShareText = document.getElementById('pdfMobileShareText');
+    var origMob = mobileShareText ? mobileShareText.textContent : 'Share';
+    if (mobileShareText) mobileShareText.textContent = '✓ Copied!';
+
     var tbLabel = document.querySelector('.pdf-toolbar-share-label');
     var origTb = tbLabel ? tbLabel.textContent : 'Share Link';
     if (tbLabel) tbLabel.textContent = '✓ Copied!';
 
     setTimeout(function () {
       if (shareBtnText) shareBtnText.textContent = origText;
+      if (mobileShareText) mobileShareText.textContent = origMob;
       if (tbLabel) tbLabel.textContent = origTb;
     }, 2200);
   }
@@ -901,6 +963,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (pdfShareLinkBtn) {
     pdfShareLinkBtn.addEventListener('click', shareCurrentProductLink);
+  }
+
+  if (pdfMobileShareBtn) {
+    pdfMobileShareBtn.addEventListener('click', shareCurrentProductLink);
   }
 
   var pdfToolbarShareBtn = document.getElementById('pdfToolbarShareBtn');
@@ -1170,8 +1236,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var isSmall = windowWidth < 480;
 
     // Side-to-side horizontal step offsets calibrated for 3D stage
-    var step1 = isSmall ? 180 : (isMobile ? 240 : 330);
-    var step2 = isSmall ? 320 : (isMobile ? 420 : 590);
+    var step1 = isSmall ? 132 : (isMobile ? 190 : 330);
+    var step2 = isSmall ? 230 : (isMobile ? 330 : 590);
 
     reelSlides.forEach(function (slide, idx) {
       // Calculate relative circular offset: -2, -1, 0, 1, 2
@@ -1718,9 +1784,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ==========================================================================
-     9. Smooth Company Score Counter Animation (Zero to Number)
+     9. Smooth Company Score Counter & Card Reveal Animation (Zero to Number)
      ========================================================================== */
   var initScoreCounters = function () {
+    var scoreCards = document.querySelectorAll('.score-card');
     var scoreElements = document.querySelectorAll('.score-number');
     if (!scoreElements || scoreElements.length === 0) return;
 
@@ -1739,43 +1806,61 @@ document.addEventListener('DOMContentLoaded', function () {
       return rounded.toString();
     };
 
-    var animateCount = function (el) {
+    var animateCount = function (el, index) {
+      var card = el.closest('.score-card');
       var target = parseFloat(el.getAttribute('data-target'));
       var suffix = el.getAttribute('data-suffix') || '';
       var formatType = el.getAttribute('data-format') || 'standard';
       if (isNaN(target)) return;
 
-      var duration = 1800; // ms
-      var startTime = null;
+      if (card) {
+        card.classList.add('is-visible');
+      }
+
+      var duration = 1750; // ms
+      var delay = (index || 0) * 90;
 
       // Ease-out expo curve for ultra-smooth deceleration
       var easeOutExpo = function (t) {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
       };
 
-      var step = function (timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = Math.min((timestamp - startTime) / duration, 1);
-        var easedProgress = easeOutExpo(progress);
-        var currentVal = easedProgress * target;
-
-        el.textContent = formatNumber(currentVal, formatType) + suffix;
-
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          el.textContent = formatNumber(target, formatType) + suffix;
-        }
-      };
-
       // Initialize counter to 0 with suffix
       el.textContent = '0' + suffix;
-      window.requestAnimationFrame(step);
+
+      setTimeout(function () {
+        var startTime = null;
+        var step = function (timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = easeOutExpo(progress);
+          var currentVal = easedProgress * target;
+
+          el.textContent = formatNumber(currentVal, formatType) + suffix;
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            el.textContent = formatNumber(target, formatType) + suffix;
+            if (card) {
+              card.classList.add('is-complete');
+            }
+          }
+        };
+        window.requestAnimationFrame(step);
+      }, delay);
+    };
+
+    var triggerAllScores = function () {
+      scoreCards.forEach(function (c) { c.classList.add('is-visible'); });
+      scoreElements.forEach(function (el, idx) {
+        animateCount(el, idx);
+      });
     };
 
     var scoresSection = document.getElementById('scores-section');
     if (!scoresSection) {
-      scoreElements.forEach(animateCount);
+      triggerAllScores();
       return;
     }
 
@@ -1783,17 +1868,17 @@ document.addEventListener('DOMContentLoaded', function () {
       var observer = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            scoreElements.forEach(animateCount);
+            triggerAllScores();
             obs.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -20px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -15px 0px'
       });
       observer.observe(scoresSection);
     } else {
-      scoreElements.forEach(animateCount);
+      triggerAllScores();
     }
   };
 

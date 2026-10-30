@@ -182,7 +182,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .video-testimonials-section,
   .text-reviews-section,
   .google-reviews-section {
-    padding: var(--section-spacing-mobile) 0;
+    padding: 44px 0;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .section-eyebrow::before {
+    width: 14px;
+  }
+
+  .section-title {
+    font-size: 1.625rem;
+    line-height: 1.22;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
 }
 
@@ -643,142 +665,403 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* ==========================================================================
    2. Williams Company Score Strip ("Our Legacy in Numbers")
+   Individually Crafted Minimalist & Animated UI for Desktop & Mobile
    ========================================================================== */
 .scores-section {
-  background: linear-gradient(180deg, #F6F8FB 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #F4F7FB 0%, #FFFFFF 100%);
   border-bottom: 1px solid var(--border);
-  padding: 44px 0 40px;
+  padding: 40px 0 38px;
   position: relative;
+  overflow: hidden;
+}
+
+.scores-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 960px;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(83, 120, 179, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .scores-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  position: relative;
+  z-index: 1;
 }
 
-@media (min-width: 640px) {
-  .scores-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .scores-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-  }
-}
-
+/* Base & Desktop Minimalist Score Card */
 .score-card {
   position: relative;
-  background-color: var(--white);
-  border: 1px solid rgba(83, 120, 179, 0.16);
-  border-radius: var(--radius-md);
-  padding: 24px 20px 22px;
+  background: linear-gradient(165deg, #FFFFFF 0%, #F9FBFF 100%);
+  border: 1px solid rgba(83, 120, 179, 0.14);
+  border-radius: 16px;
+  padding: 22px 20px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-  box-shadow: 0 2px 10px rgba(15, 30, 51, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 4px 18px -2px rgba(15, 30, 51, 0.045), 0 1px 3px rgba(15, 30, 51, 0.02);
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--card-index, 0) * 90ms),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.score-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Ambient Top-Right Glow Orb */
+.score-card::after {
+  content: '';
+  position: absolute;
+  top: -28px;
+  right: -28px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(83, 120, 179, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  opacity: 0.7;
+}
+
+/* Subtle Interactive Shimmer Sweep */
 .score-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand-blue) 0%, #3B82F6 100%);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.75) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .score-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(83, 120, 179, 0.15);
-  border-color: var(--brand-blue);
+  transform: translateY(-5px) scale(1.005);
+  box-shadow: 0 16px 32px -6px rgba(83, 120, 179, 0.16), 0 4px 10px rgba(15, 30, 51, 0.04);
+  border-color: rgba(83, 120, 179, 0.42);
 }
 
 .score-card:hover::before {
+  transform: translateX(120%);
+}
+
+.score-card:hover::after {
+  transform: scale(1.45);
   opacity: 1;
 }
 
-.score-icon-box {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(83, 120, 179, 0.12) 0%, rgba(83, 120, 179, 0.22) 100%);
-  color: var(--brand-blue-deep);
-  display: inline-flex;
+/* Header Row: Animated Number + Minimalist Floating Icon */
+.score-card-top {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  margin-bottom: 2px;
-  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
-}
-
-.score-card:hover .score-icon-box {
-  transform: scale(1.08);
-  background: var(--brand-blue);
-  color: #FFFFFF;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .score-value {
   font-family: var(--font-heading);
-  font-size: 1.55rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  background: linear-gradient(135deg, #0F1E33 0%, #2B4C7E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--brand-blue-deep);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
-  gap: 2px;
 }
 
 .score-number {
   display: inline-block;
   min-width: 1.5ch;
-  transition: color var(--transition-fast);
+}
+
+.score-icon-box {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(83, 120, 179, 0.1) 0%, rgba(83, 120, 179, 0.2) 100%);
+  border: 1px solid rgba(83, 120, 179, 0.16);
+  color: var(--brand-blue-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition:
+    transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.score-card:hover .score-icon-box {
+  transform: scale(1.1) rotate(-6deg);
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 6px 14px rgba(83, 120, 179, 0.32);
+}
+
+.score-card.is-complete .score-icon-box {
+  animation: scoreIconPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scoreIconPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.14) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Meta Block: Primary Unit Title + Muted Context Label */
+.score-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  z-index: 2;
+}
+
+.score-unit {
+  font-family: var(--font-heading);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #1E293B;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .score-label {
-  font-size: 0.8125rem;
+  font-size: 0.775rem;
   color: var(--text-muted);
-  line-height: 1.45;
-  font-weight: 500;
-  margin-top: -2px;
+  line-height: 1.35;
+  font-weight: 400;
 }
 
+/* Facility Pill Badge (Hidden on standard desktop cards, featured on Mobile horizontal card) */
+.score-facility-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--brand-blue-deep);
+  background: rgba(83, 120, 179, 0.11);
+  border: 1px solid rgba(83, 120, 179, 0.22);
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.score-facility-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #25D366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.22);
+  animation: scoreDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes scoreDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.75; }
+}
+
+/* Animated Bottom Accent Progress Line */
+.score-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(83, 120, 179, 0.08);
+  overflow: hidden;
+}
+
+.score-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, var(--brand-blue) 0%, #3B82F6 60%, #60A5FA 100%);
+  transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.score-card.is-visible .score-progress-bar {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet UI (641px – 1023px): Symmetrical 3 + 2 Balanced Bento Grid
+   -------------------------------------------------------------------------- */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .scores-section {
+    padding: 32px 0;
+  }
+
+  .scores-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .score-card:nth-child(1),
+  .score-card:nth-child(2),
+  .score-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .score-card:nth-child(4),
+  .score-card:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  .score-value {
+    font-size: 1.55rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile UI (<= 640px): Dedicated Compact 2x2 Grid + Horizontal Flagship Bar
+   -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
   .scores-section {
-    padding: 24px 0 28px;
+    padding: 20px 0 22px;
+    background: linear-gradient(180deg, #F1F5FB 0%, #FFFFFF 100%);
   }
+
   .scores-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-  .score-card:last-child {
-    grid-column: 1 / -1;
-  }
+
   .score-card {
-    padding: 16px 14px;
+    padding: 14px 13px 15px;
+    border-radius: 14px;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(15, 30, 51, 0.04);
+  }
+
+  .score-card:active {
+    transform: scale(0.985);
+  }
+
+  .score-card-top {
     gap: 6px;
   }
-  .score-icon-box {
-    width: 38px;
-    height: 38px;
-    font-size: 1.05rem;
-    border-radius: 10px;
-  }
+
   .score-value {
-    font-size: 1.25rem;
+    font-size: 1.325rem;
+    letter-spacing: -0.025em;
   }
+
+  .score-icon-box {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+    border-radius: 9px;
+  }
+
+  .score-meta {
+    gap: 2px;
+  }
+
+  .score-unit {
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
   .score-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  /* 5th Card on Mobile: Sleek Full-Width Horizontal Flagship Banner */
+  .score-card.score-card-facility {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px 15px;
+    background: linear-gradient(135deg, #F5F9FF 0%, #FFFFFF 55%, #EEF4FC 100%);
+    border-color: rgba(83, 120, 179, 0.24);
+  }
+
+  .score-card.score-card-facility .score-card-top {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(83, 120, 179, 0.16);
+  }
+
+  .score-card.score-card-facility .score-value {
+    font-size: 1.5rem;
+  }
+
+  .score-card.score-card-facility .score-icon-box {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+    color: #FFFFFF;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(83, 120, 179, 0.25);
+  }
+
+  .score-card.score-card-facility .score-meta {
+    min-width: 0;
+  }
+
+  .score-card.score-card-facility .score-unit {
+    font-size: 0.84rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .score-card.score-card-facility .score-label {
+    font-size: 0.72rem;
+  }
+
+  .score-card.score-card-facility .score-facility-badge {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 375px) {
+  .score-value {
+    font-size: 1.2rem;
+  }
+  .score-icon-box {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+  .score-card.score-card-facility .score-facility-badge {
+    display: none;
   }
 }
 
@@ -1277,17 +1560,211 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   flex-shrink: 0;
 }
 
-@media (max-width: 380px) {
+.product-category-tag {
+  display: none;
+}
+
+.wa-label-desktop {
+  display: inline;
+}
+
+.wa-label-mobile {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile View Only (<= 640px): Symmetrical 2-Column Familiar Mobile UI Cards
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .catalogue-header {
+    margin-bottom: 20px;
+  }
+
+  .catalogue-header .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 14px;
+  }
+
+  .catalogue-search-bar-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .catalogue-search-wrap {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .catalogue-search-input {
+    padding: 11px 36px 11px 40px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .catalogue-search-icon {
+    left: 13px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .catalogue-results-count {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--text-muted);
+  }
+
+  .category-tabs {
+    margin-bottom: 18px;
+    padding-bottom: 6px;
+    gap: 7px;
+  }
+
+  /* 2-Column Symmetrical Mobile Product Grid (Matches Score Cards & Mobile E-Commerce UIs) */
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-card {
+    border-radius: 14px;
+    border: 1px solid rgba(83, 120, 179, 0.16);
+    box-shadow: 0 2px 10px rgba(15, 30, 51, 0.045);
+    background: #FFFFFF;
+  }
+
+  .product-card:active {
+    transform: scale(0.985);
+  }
+
+  .product-media-wrap {
+    aspect-ratio: 1 / 1.24;
+    padding: 8px;
+    background: linear-gradient(180deg, #F4F7FB 0%, #EDF2F9 100%);
+    border-bottom: 1px solid rgba(83, 120, 179, 0.1);
+  }
+
+  .product-pdf-thumb-canvas,
+  .product-pdf-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(15, 30, 51, 0.08);
+  }
+
+  .product-badge {
+    top: 7px;
+    left: 7px;
+    font-size: 0.5625rem;
+    padding: 2.5px 7px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  .product-body {
+    padding: 10px 10px 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .product-category-tag {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand-blue);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-name {
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.28;
+    color: #0F1E33;
+    margin-bottom: 9px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.56em;
+  }
+
   .product-actions-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(226, 232, 240, 0.75);
+  }
+
+  .product-action-link {
+    width: 100%;
+    height: 31px;
+    justify-content: center;
+    padding: 0 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 8px;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .product-action-link svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .product-whatsapp-btn {
+    height: 31px;
+    padding: 0 9px;
+    border-radius: 8px;
+    font-size: 0.71rem;
+    font-weight: 600;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .product-whatsapp-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .wa-label-desktop {
+    display: none;
+  }
+
+  .wa-label-mobile {
+    display: inline;
+  }
+}
+
+@media (max-width: 360px) {
+  .products-grid {
+    gap: 8px;
+  }
+  .product-body {
+    padding: 8px 8px 9px;
+  }
+  .product-name {
+    font-size: 0.78rem;
   }
   .product-action-link {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
+    padding: 0 5px;
   }
   .product-whatsapp-btn {
-    padding: 4px 8px;
-    font-size: 0.7rem;
-    gap: 4px;
+    padding: 0 7px;
+    font-size: 0.68rem;
   }
 }
 
@@ -1543,13 +2020,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: none !important;
 }
 
-/* Native Video Card Embed - Scaled slightly to crop player chrome & pointer-events disabled to suppress YouTube overlay like/share/watermarks */
+/* Native Video Card Embed - Scaled to crop player chrome & pointer-events disabled to suppress YouTube overlay like/share/watermarks */
 .reel-yt-iframe {
   position: absolute;
-  top: -14%;
-  left: -14%;
-  width: 128%;
-  height: 128%;
+  top: -22%;
+  left: -22%;
+  width: 144%;
+  height: 144%;
   border: 0;
   z-index: 2;
   pointer-events: none;
@@ -1751,26 +2228,335 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 @media (max-width: 640px) {
-  .reel-slide {
-    width: 250px;
-    height: 444px;
-    margin-left: -125px;
-    margin-top: -222px;
+  /* ------------------------------------------------------------------------
+     Section 3 (Mobile): Our Legacy Section Optimization
+     ------------------------------------------------------------------------ */
+  .legacy-grid {
+    gap: 22px;
   }
+
+  .legacy-img-frame {
+    border-radius: 14px;
+  }
+
+  .legacy-lead {
+    font-size: 0.975rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .legacy-body {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .legacy-quote-card {
+    padding: 14px 15px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .legacy-quote-card p {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .legacy-quote-author {
+    font-size: 0.75rem;
+  }
+
+  .legacy-motto-banner {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 10px 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  /* ------------------------------------------------------------------------
+     Section 4 (Mobile): Catalogue Footer Callout Optimization
+     ------------------------------------------------------------------------ */
+  .catalogue-cta-wrap {
+    margin-top: 28px;
+    padding: 20px 16px;
+    background: var(--white);
+    border: 1px solid rgba(83, 120, 179, 0.16);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(15, 30, 51, 0.04);
+  }
+
+  .catalogue-cta-wrap p {
+    font-size: 0.84rem !important;
+    line-height: 1.45;
+    margin-bottom: 12px !important;
+  }
+
+  .catalogue-cta-wrap .btn {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.875rem;
+    border-radius: 10px;
+  }
+
+  /* ------------------------------------------------------------------------
+     Section 5 (Mobile): Customer Experience Reels ("What Our Customers Say")
+     Eliminates empty black gap, crops YT icons & prevents clipped side labels
+     ------------------------------------------------------------------------ */
+  .reels-showcase-section {
+    padding: 40px 0 44px;
+  }
+
+  .reels-header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .reels-title-box .section-title {
+    font-size: 1.65rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .reels-title-box .section-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .reels-audio-toggle-btn {
+    padding: 8px 16px;
+    font-size: 0.8125rem;
+    gap: 8px;
+  }
+
+  .reels-stage-container {
+    min-height: 0;
+    padding: 6px 0 4px;
+  }
+
+  .reels-nav-btn {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    background: rgba(10, 19, 32, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .reels-nav-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .reels-nav-prev {
+    left: 10px;
+  }
+
+  .reels-nav-next {
+    right: 10px;
+  }
+
+  .reel-slide {
+    width: 240px;
+    height: 426px;
+    margin-left: -120px;
+    margin-top: -213px;
+  }
+
   .reels-track {
-    height: 470px;
+    height: 448px;
+  }
+
+  /* Hide brand card on inactive side reels on mobile so text never clips at screen edges */
+  .reel-slide:not(.active) .reel-meta-tag {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .reel-slide.active .reel-meta-tag {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .reel-active-indicator {
+    top: 12px;
+    right: 12px;
+    padding: 3px 9px;
+    font-size: 0.625rem;
+  }
+
+  .reels-pagination-dots {
+    margin-top: 18px;
+    gap: 8px;
+  }
+
+  .reel-dot {
+    width: 24px;
+    height: 5px;
+  }
+
+  .reel-dot.active {
+    width: 42px;
+  }
+
+  /* ------------------------------------------------------------------------
+     Section 6 (Mobile): Written Client Reviews Optimization
+     ------------------------------------------------------------------------ */
+  .reviews-grid {
+    gap: 12px;
+  }
+
+  .review-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+
+  .review-stars {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .review-quote-text {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .review-author-wrap {
+    padding-top: 10px;
+  }
+
+  .review-author-name {
+    font-size: 0.8125rem;
+  }
+
+  .review-author-business {
+    font-size: 0.72rem;
+  }
+
+  /* ------------------------------------------------------------------------
+     Section 7 (Mobile): Genuine Google Reviews Optimization
+     ------------------------------------------------------------------------ */
+  .google-reviews-container {
+    padding: 22px 16px;
+    gap: 20px;
+    border-radius: 16px;
+  }
+
+  .google-badge-headline {
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+  }
+
+  #googleReviewsHeading {
+    font-size: 1.45rem !important;
+    line-height: 1.25;
+  }
+
+  .google-rating-display {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .rating-number {
+    font-size: 2.25rem;
+  }
+
+  .rating-stars-cluster .stars {
+    font-size: 1.05rem;
+  }
+
+  .rating-count {
+    font-size: 0.75rem;
+  }
+
+  .google-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    background: var(--white);
+  }
+
+  .google-verified-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .google-review-snippet {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  /* ------------------------------------------------------------------------
+     Section 8 (Mobile): Minimal Footer Optimization
+     ------------------------------------------------------------------------ */
+  .minimal-footer {
+    padding: 36px 0 24px;
+  }
+
+  .footer-inner {
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+
+  .footer-logo {
+    max-width: 160px;
+    margin-bottom: 12px;
+  }
+
+  .footer-tagline {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .footer-heading {
+    font-size: 0.9375rem;
+    margin-bottom: 8px;
+  }
+
+  .footer-address {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .footer-contacts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .footer-contact-link {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.8125rem;
+    font-weight: 500;
   }
 }
 
 @media (max-width: 480px) {
   .reel-slide {
-    width: 220px;
-    height: 391px;
-    margin-left: -110px;
-    margin-top: -195px;
+    width: 224px;
+    height: 398px;
+    margin-left: -112px;
+    margin-top: -199px;
   }
   .reels-track {
-    height: 420px;
+    height: 418px;
   }
   .reel-meta-tag {
     bottom: 12px;
@@ -1778,20 +2564,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     right: 10px;
   }
   .reel-brand-card {
-    padding: 5px 8px 5px 6px;
-    gap: 7px;
+    padding: 5px 10px 5px 6px;
+    gap: 8px;
+    width: 100%;
   }
   .reel-brand-logo-frame {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
     border-radius: 6px;
   }
   .reel-brand-name {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
   .reel-brand-caption {
-    font-size: 0.625rem;
+    font-size: 0.64rem;
   }
 }
 
@@ -1801,17 +2588,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .text-reviews-section {
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .reviews-grid {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 14px;
+    padding: 4px 16px 14px;
+    margin: 0 -16px;
+  }
+
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reviews-grid .review-card {
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: center;
   }
 }
 
@@ -2447,11 +3254,25 @@ textarea.form-control {
   color: var(--white);
 }
 
+.pdf-back-desktop {
+  display: inline;
+}
+
+.pdf-back-mobile {
+  display: none;
+}
+
 .pdf-header-title-box {
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
+}
+
+.pdf-header-submeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .pdf-product-title {
@@ -2484,57 +3305,232 @@ textarea.form-control {
   letter-spacing: 0.02em;
 }
 
+.pdf-mobile-stage-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Blocks Google Drive's built-in top-right pop-out / external download button */
+.pdf-popout-shield {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 72px;
+  height: 72px;
+  z-index: 25;
+  background: transparent;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.pdf-mobile-bottom-bar {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .pdf-viewer-header {
-    height: 56px;
+    height: 58px;
     padding: 0 12px;
+    background: rgba(15, 30, 51, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
+
   .pdf-header-left {
-    gap: 8px;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
   }
+
   .pdf-back-btn {
-    padding: 6px 8px;
+    padding: 7px 10px;
     font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    flex-shrink: 0;
   }
+
+  .pdf-back-desktop {
+    display: none;
+  }
+
+  .pdf-back-mobile {
+    display: inline;
+  }
+
+  .pdf-header-title-box {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
   .pdf-product-title {
-    font-size: 0.875rem;
-    max-width: 130px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 100%;
+    width: 100%;
   }
+
+  .pdf-header-submeta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .pdf-category-label {
-    display: none;
+    display: inline-block;
+    background: transparent;
+    padding: 0;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #7BA2DE;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
   .pdf-doc-badge {
-    display: none;
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-size: 0.68rem;
+    color: #94A3B8;
   }
+
+  .pdf-doc-badge::before {
+    content: '• ';
+    color: rgba(148, 163, 184, 0.5);
+  }
+
   .pdf-header-actions {
     gap: 6px;
+    flex-shrink: 0;
   }
+
   .pdf-share-btn {
-    padding: 6px 10px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 9px;
+    justify-content: center;
   }
+
   .pdf-share-btn span {
     display: none;
   }
-  .pdf-quote-btn {
-    padding: 6px 10px;
-    font-size: 0.75rem;
+
+  /* Move WhatsApp CTA out of cramped top header into sticky mobile bottom bar */
+  .pdf-viewer-header .pdf-quote-btn {
+    display: none;
   }
-  .pdf-quote-btn span {
-    display: inline;
-  }
+
   .pdf-close-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.5rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1.4rem;
+  }
+
+  /* Framed Mobile Document Viewport */
+  .pdf-document-scroll-viewport {
+    padding: 8px 8px;
+    background-color: #070F1C;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pdf-mobile-stage-card {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(83, 120, 179, 0.25);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+    background-color: #0D1829;
+  }
+
+  /* Sticky Mobile Bottom Bar for Full PDF & Fast Response WhatsApp */
+  .pdf-mobile-bottom-bar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(15, 30, 51, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+    z-index: 20;
+  }
+
+  .pdf-mobile-open-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .pdf-mobile-open-btn:active {
+    transform: scale(0.97);
+  }
+
+  .pdf-mobile-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 10px;
+    background-color: #25D366;
+    border: 1px solid #20BD5A;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .pdf-mobile-wa-btn:active {
+    transform: scale(0.98);
   }
 }
 
-@media (max-width: 380px) {
-  .pdf-product-title {
-    max-width: 90px;
-  }
-  .pdf-back-btn span {
+@media (max-width: 360px) {
+  .pdf-back-mobile {
     display: none;
+  }
+  .pdf-back-btn {
+    padding: 7px 8px;
+  }
+  .pdf-mobile-open-btn {
+    padding: 0 11px;
+    font-size: 0.75rem;
+  }
+  .pdf-mobile-wa-btn {
+    font-size: 0.8125rem;
   }
 }
 
@@ -2683,6 +3679,19 @@ textarea.form-control {
   outline: none;
 }
 
+.internal-pdf-viewer.local-brochure-mode .pdf-document-scroll-viewport {
+  overflow-y: auto;
+  padding: 28px 16px 48px;
+}
+
+.internal-pdf-viewer.local-brochure-mode .pdf-mobile-stage-card {
+  height: auto;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
 .pdf-gdrive-frame {
   position: absolute;
   top: 0;
@@ -2810,6 +3819,14 @@ textarea.form-control {
   z-index: 90;
   letter-spacing: 0.02em;
   transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .pdf-floating-page-pill {
+    bottom: 76px;
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
 }
 
 /* ==========================================================================
