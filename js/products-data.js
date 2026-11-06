@@ -385,7 +385,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'drop-in-series',
     categoryLabel: 'Drop In Series',
     pdfFileName: 'Dropin_Series_New_1 Draft_1.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1sLAUF4wa0qYxs6N5FASjnNYBZECKWtjs/view?usp=sharing',
+    pdfPath: 'https://drive.google.com/file/d/1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz/view?usp=sharing',
     pdfSizeKB: 164374.0,
     badge: 'Hot Selling'
   }
@@ -442,7 +442,7 @@ var WILLIAMS_LOCAL_BROCHURES = {
 // Verified Cloud Google Drive Brochure Links for Fast Streaming & Direct Downloads
 var WILLIAMS_DRIVE_LINKS = {
   // Drop In Series (Official Drive Asset)
-  'drop-in-series': '1sLAUF4wa0qYxs6N5FASjnNYBZECKWtjs',
+  'drop-in-series': '1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz',
 
   // Refrigeration Cabinet
   'open-deck': '14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ',
