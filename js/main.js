@@ -1578,7 +1578,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Check section viewport intersection to manage video playback & rotation
   function checkReelsViewportState() {
-    if (!reelsSection) return;
+    if (!reelsSection || reelsSection.offsetParent === null) return;
     var rect = reelsSection.getBoundingClientRect();
     var isInView = rect.top < window.innerHeight && rect.bottom > 0;
     if (isInView !== sectionInViewport) {
