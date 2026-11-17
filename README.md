@@ -27,12 +27,13 @@ Built around authentic commercial assets, verified engineering specifications, o
    * High-contrast dark radial overlay (`rgba(15, 30, 51, 0.72)` to `rgba(15, 30, 51, 0.88)`).
    * Official Williams branding (`assets/logos/williams-logo.png`).
    * Two primary CTAs: *"Explore Catalogue ↓"* (smooth anchor scroll) & *"Fast Response on WhatsApp"* (direct WhatsApp message).
-3. **Engineering Highlights:** 4 key credibility pillars:
-   * **Established 1997:** 27+ years of cold chain engineering in Bangalore.
-   * **Climate Class 5 (43°C):** Tropical reliability rating.
-   * **Commercial-Grade 304 SS:** Food-grade hygienic stainless steel construction.
-   * **Eco-Friendly R290 Gas:** Low-GWP natural hydrocarbon refrigeration.
-4. **Editorial Heritage:** The story of Williams Refrigeration India led by Managing Director William S.R. and Patrick, with 3 Bangalore manufacturing hubs and 1,000+ commercial installations.
+3. **Company Scores Strip ("Our Legacy in Numbers"):**
+   * **30+** Years of Legacy &bull; Manufacturing Excellence
+   * **10,000+** Outlets &bull; Empowered Across India
+   * **5,00,000+** Machines &bull; Manufactured with Precision
+   * **300+** Trusted Brands &bull; Choose Williams Solutions
+   * **2** Manufacturing Facilities &bull; Bommasandra, Bangalore (HQ)
+4. **Editorial Heritage:** The story of Williams Refrigeration India since 1997 with 2 advanced manufacturing facilities in Bommasandra, Bangalore.
 5. **Interactive Product Catalogue (31 Verified Models across 4 Categories):**
    * Sourced directly from verified commercial specification files & Google Drive brochure assets.
    * **Ice cream Display Cabinets (7 Models):** Stella (Hot Selling), Sierra ICD, Shea, Shiloh, Sonnet, Smart (Best Value), Snowgel.
