@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ========================================================================== */
   // Clear legacy sessionStorage thumbnail cache so updated authentic covers render fresh
   try {
-    ['sherin', 'stellina', 'drop-in-series'].forEach(function (slugKey) {
+    ['sherin', 'stellina', 'drop-in-series', 'chiller', 'refrigerated-cabinets', 'hot-cold-banquet-trolley-r290', 'hot-cold-holding-cabinet'].forEach(function (slugKey) {
       sessionStorage.removeItem('wm_thumb_' + slugKey);
     });
   } catch (e) {}
@@ -428,6 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return p.name.toLowerCase().indexOf(q) !== -1 ||
                p.categoryLabel.toLowerCase().indexOf(q) !== -1 ||
                p.slug.toLowerCase().indexOf(q) !== -1 ||
+               (p.oldSlug && p.oldSlug.toLowerCase().indexOf(q) !== -1) ||
                (p.summary && p.summary.toLowerCase().indexOf(q) !== -1);
       });
     }
@@ -1040,7 +1041,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (prodMatch && prodMatch[1]) {
         var targetSlug = prodMatch[1];
-        var found = products.find(function (p) { return p.slug === targetSlug; });
+        var found = products.find(function (p) { return p.slug === targetSlug || p.oldSlug === targetSlug; });
         if (found) {
           var pNum = pageMatch ? parseInt(pageMatch[1], 10) : 1;
           setTimeout(function () {

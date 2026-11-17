@@ -5,7 +5,7 @@
  * 5 Updated Categories:
  * 1. Ice Cream (6 Products: Stella, Sierra ICD, Shea, Shiloh, Smart, Snowgel)
  * 2. Display Cabinet (8 Products: Shannon, Silya, Sherin, Stellina, Stellar, Slavia, StellarSphire, Scenic-Prima)
- * 3. Refrigeration Cabinet (9 Products: Open Deck, Chiller, Blast Freezer, R290 Banquet Trolley Cabinet, R290 Refrigerated Counter, Refrigerated Counter - Regular, Back Bar Cooler, Wine Chiller, Dual Temp Cabinet)
+ * 3. Refrigeration Cabinet (9 Products: Open Deck, Refrigerated Cabinets, Blast Freezer, Hot/Cold Holding Cabinet, R290 Refrigerated Counter, Refrigerated Counter - Regular, Back Bar Cooler, Wine Chiller, Dual Temp Cabinet)
  * 4. Drop In Series (1 Product: Drop-In Series)
  * 5. Confectionery (5 Products: Sibyl, Sierra Pastry, Skyler, Steffania, Sonnet)
  *
@@ -288,8 +288,9 @@ window.WILLIAMS_PRODUCTS = [
   },
   {
     id: 'refrig-chiller',
-    slug: 'chiller',
-    name: 'Chiller',
+    slug: 'refrigerated-cabinets',
+    oldSlug: 'chiller',
+    name: 'Refrigerated Cabinets',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'Refrigerated Cabinet_Regular.pdf',
@@ -310,8 +311,9 @@ window.WILLIAMS_PRODUCTS = [
   },
   {
     id: 'comm-hot-cold-banquet-trolley',
-    slug: 'hot-cold-banquet-trolley-r290',
-    name: 'R290 Banquet Trolley Cabinet',
+    slug: 'hot-cold-holding-cabinet',
+    oldSlug: 'hot-cold-banquet-trolley-r290',
+    name: 'Hot/Cold Holding Cabinet',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'Hot & Cold Banquet Trolley R290.pdf',
@@ -420,8 +422,10 @@ var WILLIAMS_PAGE_COUNTS = {
 
   // Refrigeration Cabinet (9 models)
   'open-deck': 8,
+  'refrigerated-cabinets': 12,
   'chiller': 12,
   'blast-freezer': 8,
+  'hot-cold-holding-cabinet': 10,
   'hot-cold-banquet-trolley-r290': 10,
   'r290-refrigerated-counter': 12,
   'refrigerated-counter-regular': 12,
@@ -446,8 +450,10 @@ var WILLIAMS_DRIVE_LINKS = {
 
   // Refrigeration Cabinet
   'open-deck': '14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ',
+  'refrigerated-cabinets': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
   'chiller': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
   'blast-freezer': '11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8',
+  'hot-cold-holding-cabinet': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
   'hot-cold-banquet-trolley-r290': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
   'r290-refrigerated-counter': '1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1',
   'refrigerated-counter-regular': '1JJu93GJOJ6m3oSbVIINUNs_IKNYFWRMR',
