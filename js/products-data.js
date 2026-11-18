@@ -25,7 +25,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'display-cabinets',
     name: 'Display Cabinet',
     folderName: 'Display Cabinets',
-    productCount: 8
+    productCount: 6
   },
   {
     id: 'refrigeration-cabinat',
@@ -155,7 +155,8 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Sherin.pdf',
     pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sherin.pdf',
     pdfSizeKB: 1150.0,
-    badge: null
+    badge: null,
+    hidden: true
   },
   {
     id: 'disp-stellina',
@@ -166,7 +167,8 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Stellina.pdf',
     pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Stellina.pdf',
     pdfSizeKB: 1150.0,
-    badge: null
+    badge: null,
+    hidden: true
   },
   {
     id: 'disp-stellar',

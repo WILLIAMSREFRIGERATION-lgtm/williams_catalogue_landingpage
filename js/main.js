@@ -8,7 +8,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  var products = window.WILLIAMS_PRODUCTS || [];
+  var products = (window.WILLIAMS_PRODUCTS || []).filter(function (p) { return !p.hidden; });
   var categories = window.WILLIAMS_CATEGORIES || [];
   var tracker = window.WilliamsTracker || { track: function () {} };
 
