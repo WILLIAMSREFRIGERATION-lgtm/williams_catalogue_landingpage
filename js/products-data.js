@@ -391,15 +391,14 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Dropin_Series_New_1 Draft_1.pdf',
     pdfPath: 'https://drive.google.com/file/d/1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz/view?usp=sharing',
     pdfSizeKB: 164374.0,
-    badge: '9 Models in 1 Catalogue',
+    badge: 'Hot Selling',
     modelsCount: 9,
-    image: 'assets/products/drop-in/drop-in-refrigerated-well.jpg',
-    gallery: [
-      { src: 'assets/products/drop-in/drop-in-refrigerated-well.jpg', title: 'Refrigerated Cold Well (GN Pans)' },
-      { src: 'assets/products/drop-in/drop-in-bain-marie.jpg', title: 'Bain Marie Hot Food Well' },
-      { src: 'assets/products/drop-in/drop-in-cold-well.jpg', title: 'Frost Top / Cold Well' },
-      { src: 'assets/products/drop-in/drop-in-hot-cold-plate.jpg', title: 'Ceramic Hot / Cold Plate' },
-      { src: 'assets/thumbnails/drop-in-series-collage.jpg', title: '9 Models Series Overview' }
+    image: 'assets/thumbnails/drop-in-series.jpg',
+    submodelThumbnails: [
+      'assets/products/drop-in/drop-in-refrigerated-well.jpg',
+      'assets/products/drop-in/drop-in-bain-marie.jpg',
+      'assets/products/drop-in/drop-in-cold-well.jpg',
+      'assets/products/drop-in/drop-in-hot-cold-plate.jpg'
     ],
     modelsIncluded: [
       'Refrigerated Cold Wells (GN Pans)',

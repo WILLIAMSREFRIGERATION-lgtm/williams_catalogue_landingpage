@@ -1473,150 +1473,70 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border: 1px solid #BFDBFE;
 }
 
-.product-badge.badge-9-models-in-1-catalogue {
-  background: linear-gradient(135deg, #0F2A4A 0%, #1E3A8A 50%, #2563EB 100%);
-  color: #FFFFFF;
+/* Non-interactive Submodel Preview Strip on Thumbnail */
+.product-submodels-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 30, 51, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  font-weight: 700;
-  box-shadow: 0 3px 10px rgba(15, 42, 74, 0.28);
-  letter-spacing: 0.2px;
+  border-radius: 999px;
+  padding: 3px 8px 3px 4px;
+  box-shadow: 0 4px 12px rgba(15, 30, 51, 0.25);
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+  max-width: 92%;
 }
 
-.product-media-wrap.has-gallery {
-  padding-bottom: 8px;
-}
-
-.product-card-gallery-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  padding-top: 8px;
-  z-index: 3;
-}
-
-.card-gallery-thumb {
-  width: 42px;
-  height: 42px;
-  border-radius: 6px;
-  border: 1.5px solid rgba(83, 120, 179, 0.25);
-  background: #FFFFFF;
-  padding: 2px;
+.submodels-avatar-group {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-  overflow: hidden;
 }
 
-.card-gallery-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-.card-gallery-thumb:hover {
-  transform: translateY(-2px);
-  border-color: var(--brand-blue);
-  box-shadow: 0 4px 10px rgba(83, 120, 179, 0.2);
-}
-
-.card-gallery-thumb.active {
-  border-color: var(--brand-blue);
-  box-shadow: 0 0 0 2px rgba(83, 120, 179, 0.45);
-  transform: translateY(-1px);
-}
-
-.card-gallery-thumb.thumb-more-pill {
-  background: #EFF6FF;
-  border-color: #BFDBFE;
-}
-
-.thumb-more-tag {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--brand-blue);
-}
-
-.name-models-tag {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--brand-blue);
-  letter-spacing: 0;
-}
-
-.product-models-box {
-  background: #F8FAFD;
-  border: 1px solid rgba(83, 120, 179, 0.16);
-  border-radius: 8px;
-  padding: 8px 10px;
-  margin-bottom: 12px;
-}
-
-.models-box-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  color: #1E3A8A;
-  font-weight: 500;
-}
-
-.models-box-header svg {
-  color: var(--brand-blue);
-  flex-shrink: 0;
-}
-
-.models-chips-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 6px;
-}
-
-.m-chip {
-  font-size: 0.6875rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 7px;
-  border-radius: 4px;
+.submodel-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #FFFFFF;
+  object-fit: cover;
   background: #FFFFFF;
-  border: 1px solid rgba(83, 120, 179, 0.18);
-  color: #334155;
-  font-weight: 500;
-  line-height: 1.3;
+  margin-left: -5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.m-chip i {
-  font-size: 0.625rem;
-  color: var(--brand-blue);
+.submodel-avatar:first-child {
+  margin-left: 0;
 }
 
-.m-chip.m-chip-more {
-  background: var(--brand-blue);
+.submodel-remaining-tag {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2563EB;
   color: #FFFFFF;
-  border-color: var(--brand-blue);
-  font-weight: 600;
-}
-
-.models-box-note {
-  display: flex;
+  border: 1.5px solid #FFFFFF;
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.6875rem;
-  color: #64748B;
-  margin-top: 6px;
-  padding-top: 5px;
-  border-top: 1px dashed rgba(83, 120, 179, 0.15);
+  justify-content: center;
+  margin-left: -5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.models-box-note svg {
-  flex-shrink: 0;
-  color: #94A3B8;
+.submodels-pill-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+  padding-left: 2px;
 }
 
 .product-body {

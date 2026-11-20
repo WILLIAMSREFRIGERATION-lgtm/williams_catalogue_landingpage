@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
     card.setAttribute('role', 'button');
     card.setAttribute('aria-label', 'View ' + prod.name + ' catalogue specification');
 
-    // Subtle, optional badge (Hot Selling, Best Value, or Multi-Model highlight)
+    // Subtle, optional badge (Hot Selling or Best Value only)
     var badgeHtml = '';
     if (prod.badge) {
       var badgeClass = 'badge-' + prod.badge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -262,32 +262,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var thumbSrc = prod.image || ('assets/thumbnails/' + prod.slug + '.jpg');
 
-    // Multi-model interactive gallery strip
-    var galleryHtml = '';
-    if (prod.gallery && prod.gallery.length) {
-      galleryHtml = '<div class="product-card-gallery-strip" aria-label="Explore models in this catalogue">';
-      prod.gallery.forEach(function (g, idx) {
-        var isCollage = g.src.indexOf('collage') !== -1;
-        galleryHtml += '<button type="button" class="card-gallery-thumb' + (idx === 0 ? ' active' : '') + (isCollage ? ' thumb-more-pill' : '') + '" data-src="' + g.src + '" title="' + g.title + '" aria-label="' + g.title + '">';
-        if (isCollage) {
-          galleryHtml += '<span class="thumb-more-tag">All 9</span>';
-        } else {
-          galleryHtml += '<img src="' + g.src + '" alt="' + g.title + '" loading="lazy" width="46" height="46">';
-        }
-        galleryHtml += '</button>';
+    // Non-interactive submodel preview avatars overlay below the thumbnail
+    var submodelsHtml = '';
+    if (prod.submodelThumbnails && prod.submodelThumbnails.length) {
+      var remainingCount = (prod.modelsCount || 9) - prod.submodelThumbnails.length;
+      submodelsHtml =
+        '<div class="product-submodels-pill" aria-hidden="true">' +
+          '<div class="submodels-avatar-group">';
+      prod.submodelThumbnails.forEach(function (src) {
+        submodelsHtml += '<img src="' + src + '" alt="" class="submodel-avatar" loading="lazy" width="24" height="24">';
       });
-      galleryHtml += '</div>';
+      if (remainingCount > 0) {
+        submodelsHtml += '<span class="submodel-remaining-tag">+' + remainingCount + '</span>';
+      }
+      submodelsHtml +=
+          '</div>' +
+          '<span class="submodels-pill-label">' + (prod.modelsCount || 9) + ' Models</span>' +
+        '</div>';
     }
 
     // Media HTML: Authentic PDF Page 1 cover image with shimmer skeleton loader
     var mediaHtml =
-      '<div class="product-media-wrap' + (prod.gallery ? ' has-gallery' : '') + '">' +
+      '<div class="product-media-wrap">' +
         badgeHtml +
         '<div class="product-thumb-stage" data-slug="' + prod.slug + '">' +
           '<img class="product-pdf-thumb-img" src="' + thumbSrc + '" alt="' + prod.name + ' catalogue specification cover" loading="lazy" width="400" height="520" onload="var s=this.nextElementSibling; if(s) s.classList.add(\'loaded\');">' +
           '<div class="product-thumb-skeleton" aria-hidden="true"></div>' +
+          submodelsHtml +
         '</div>' +
-        galleryHtml +
       '</div>';
 
     // Generate direct WhatsApp link with specific product name pre-filled
@@ -297,35 +299,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Direct Google Drive brochure URL for zero-wait smooth opening
     var catUrl = prod.driveUrl || (prod.driveId ? ('https://drive.google.com/file/d/' + prod.driveId + '/view?usp=drive_link') : '#');
 
-    // Models included overview for series with multiple models
-    var modelsIncludedHtml = '';
-    if (prod.modelsIncluded && prod.modelsIncluded.length) {
-      modelsIncludedHtml =
-        '<div class="product-models-box">' +
-          '<div class="models-box-header">' +
-            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>' +
-            '<span><strong>' + (prod.modelsCount || prod.modelsIncluded.length) + ' Models</strong> in this Catalogue:</span>' +
-          '</div>' +
-          '<div class="models-chips-wrap">' +
-            '<span class="m-chip"><i class="fa-solid fa-snowflake"></i> Cold Food Wells</span>' +
-            '<span class="m-chip"><i class="fa-solid fa-fire"></i> Bain Marie Hot Wells</span>' +
-            '<span class="m-chip"><i class="fa-solid fa-cube"></i> Frost Tops &amp; Plates</span>' +
-            '<span class="m-chip"><i class="fa-solid fa-utensils"></i> Salad &amp; Deli Drops</span>' +
-            '<span class="m-chip m-chip-more">+5 More Configurations</span>' +
-          '</div>' +
-          '<div class="models-box-note">' +
-            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>' +
-            '<span>Complete 30-Page Technical Cut-Out Catalogue</span>' +
-          '</div>' +
-        '</div>';
-    }
-
     // Body HTML: strictly product name, "Catalogue ->" button and WhatsApp direct fast response button
     var bodyHtml =
       '<div class="product-body">' +
-        '<span class="product-category-tag">' + prod.categoryLabel + (prod.modelsCount ? ' &bull; ' + prod.modelsCount + ' Models Series' : '') + '</span>' +
-        '<h3 class="product-name">' + prod.name + (prod.modelsCount ? ' <span class="name-models-tag">(' + prod.modelsCount + ' Products)</span>' : '') + '</h3>' +
-        modelsIncludedHtml +
+        '<span class="product-category-tag">' + prod.categoryLabel + '</span>' +
+        '<h3 class="product-name">' + prod.name + '</h3>' +
         '<div class="product-actions-bar">' +
           '<button type="button" class="product-action-link" aria-label="View ' + prod.name + ' digital catalogue">' +
             '<span>Catalogue</span>' +
@@ -388,25 +366,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       openPdfViewer(prod, 1, true);
     });
-
-    // Interactive gallery thumbnail switcher for multi-model series cards
-    var galleryBtns = card.querySelectorAll('.card-gallery-thumb');
-    if (galleryBtns.length > 0) {
-      galleryBtns.forEach(function (btn) {
-        function activateThumb(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          var targetSrc = btn.getAttribute('data-src');
-          if (imgEl && targetSrc) {
-            imgEl.src = targetSrc;
-            galleryBtns.forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-          }
-        }
-        btn.addEventListener('click', activateThumb);
-        btn.addEventListener('mouseenter', activateThumb);
-      });
-    }
 
     // Keyboard enter / space trigger
     card.addEventListener('keydown', function (e) {
