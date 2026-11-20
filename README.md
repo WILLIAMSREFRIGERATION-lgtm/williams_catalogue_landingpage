@@ -38,7 +38,7 @@ Built around authentic commercial assets, verified engineering specifications, o
    * Sourced directly from verified commercial specification files & Google Drive brochure assets.
    * **Ice cream Display Cabinets (7 Models):** Stella (Hot Selling), Sierra ICD, Shea, Shiloh, Sonnet, Smart (Best Value), Snowgel.
    * **Refrigerated cabinets (18 Models):** Skyler (Hot Selling), Sibyl (Best Value), Scenic-Prima, Shannon, Sidney, Sierra Pastry, Silya, Slavia, Steffania, Stellar, StellarSphire, Blast Freezer (Hot Selling), Hot & Cold Banquet Trolley R290, R290 Refrigerated Cabinets, R290 Refrigerated Counter, Refrigerated Cabinet - Regular, Refrigerated Counter - Regular (Best Value), Thawing Cabinets.
-   * **Drop-In (4 Models):** Drop-In Series (Hot Selling - Official Catalogue), Pan Cooler, Prep Stations (Best Value), Dual.
+   * **Drop-In (9 Models Series Catalogue):** Complete Drop-In Series featuring 9 modular configurations (Cold Food Wells, Bain Marie Hot Wells, Frost Tops, Ceramic Hot/Cold Plates, Salad & Deli Wells, Dual-Temp Modules) with interactive multi-image switcher and dedicated model chips.
    * **Bar Counter Cells (2 Models):** Back Bar Cooler (Hot Selling), Wine Chiller.
    * **Instant Vector Blueprint Canvas:** Generates immediate architectural previews so cards never appear blank while PDF.js loads.
    * **On-Demand First-Page PDF Render & Cloud Stream:** Seamless in-site viewing with direct Google Drive cloud streaming for large catalogs.
