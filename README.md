@@ -29,9 +29,9 @@ Built around authentic commercial assets, verified engineering specifications, o
    * Two primary CTAs: *"Explore Catalogue ↓"* (smooth anchor scroll) & *"Fast Response on WhatsApp"* (direct WhatsApp message).
 3. **Company Scores Strip ("Our Legacy in Numbers"):**
    * **30+** Years of Legacy &bull; Manufacturing Excellence
-   * **10,000+** Outlets &bull; Empowered Across India
-   * **5,00,000+** Machines &bull; Manufactured with Precision
-   * **300+** Trusted Brands &bull; Choose Williams Solutions
+   * **20,000+** Clients &bull; Empowered Across India
+   * **2,50,000+** Machines &bull; Manufactured with Precision
+   * **500+** Trusted Brands &bull; Choose Williams Solutions
    * **2** Manufacturing Facilities &bull; Bommasandra, Bangalore (HQ)
 4. **Editorial Heritage:** The story of Williams Refrigeration India since 1997 with 2 advanced manufacturing facilities in Bommasandra, Bangalore.
 5. **Interactive Product Catalogue (31 Verified Models across 4 Categories):**
