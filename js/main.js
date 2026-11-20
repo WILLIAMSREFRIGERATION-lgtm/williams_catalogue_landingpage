@@ -262,23 +262,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var thumbSrc = prod.image || ('assets/thumbnails/' + prod.slug + '.jpg');
 
-    // Non-interactive submodel preview avatars overlay below the thumbnail
+    // Non-interactive submodel preview strip overlay below the thumbnail (visible & distinct)
     var submodelsHtml = '';
     if (prod.submodelThumbnails && prod.submodelThumbnails.length) {
       var remainingCount = (prod.modelsCount || 9) - prod.submodelThumbnails.length;
       submodelsHtml =
-        '<div class="product-submodels-pill" aria-hidden="true">' +
-          '<div class="submodels-avatar-group">';
+        '<div class="product-submodels-strip" aria-hidden="true">';
       prod.submodelThumbnails.forEach(function (src) {
-        submodelsHtml += '<img src="' + src + '" alt="" class="submodel-avatar" loading="lazy" width="24" height="24">';
+        submodelsHtml +=
+          '<div class="submodel-item">' +
+            '<img src="' + src + '" alt="Equipment preview" class="submodel-photo" loading="lazy">' +
+          '</div>';
       });
       if (remainingCount > 0) {
-        submodelsHtml += '<span class="submodel-remaining-tag">+' + remainingCount + '</span>';
+        submodelsHtml +=
+          '<div class="submodel-item submodel-item-more">' +
+            '<span class="submodel-more-count">+' + remainingCount + '</span>' +
+            '<span class="submodel-more-lbl">Models</span>' +
+          '</div>';
       }
-      submodelsHtml +=
-          '</div>' +
-          '<span class="submodels-pill-label">' + (prod.modelsCount || 9) + ' Models</span>' +
-        '</div>';
+      submodelsHtml += '</div>';
     }
 
     // Media HTML: Authentic PDF Page 1 cover image with shimmer skeleton loader
