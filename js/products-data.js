@@ -312,18 +312,6 @@ window.WILLIAMS_PRODUCTS = [
     badge: 'Hot Selling'
   },
   {
-    id: 'comm-hot-cold-banquet-trolley',
-    slug: 'hot-cold-holding-cabinet',
-    oldSlug: 'hot-cold-banquet-trolley-r290',
-    name: 'Hot/Cold Holding Cabinet',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Holding Cabinets_compressed.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
-    pdfSizeKB: 1708.7,
-    badge: null
-  },
-  {
     id: 'comm-r290-counter',
     slug: 'r290-refrigerated-counter',
     name: 'R290 Refrigerated Counter',
@@ -412,6 +400,18 @@ window.WILLIAMS_PRODUCTS = [
       'Custom Buffet Drop-In Systems'
     ],
     summary: 'Comprehensive 9-model modular drop-in collection featuring cold wells, bain marie, frost tops, ceramic plates & buffet counters'
+  },
+  {
+    id: 'comm-hot-cold-banquet-trolley',
+    slug: 'hot-cold-holding-cabinet',
+    oldSlug: 'hot-cold-banquet-trolley-r290',
+    name: 'Hot/Cold Holding Cabinet',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Holding Cabinets_compressed.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
+    pdfSizeKB: 1708.7,
+    badge: null
   }
 ];
 
