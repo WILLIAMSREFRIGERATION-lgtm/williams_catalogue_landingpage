@@ -720,7 +720,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .scores-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   position: relative;
   z-index: 1;
@@ -952,19 +952,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   .scores-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-  }
-
-  .score-card:nth-child(1),
-  .score-card:nth-child(2),
-  .score-card:nth-child(3) {
-    grid-column: span 2;
-  }
-
-  .score-card:nth-child(4),
-  .score-card:nth-child(5) {
-    grid-column: span 3;
   }
 
   .score-value {
@@ -1027,57 +1016,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     line-height: 1.3;
   }
 
-  /* 5th Card on Mobile: Sleek Full-Width Horizontal Flagship Banner */
-  .score-card.score-card-facility {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 14px 15px;
-    background: linear-gradient(135deg, #F5F9FF 0%, #FFFFFF 55%, #EEF4FC 100%);
-    border-color: rgba(83, 120, 179, 0.24);
-  }
-
-  .score-card.score-card-facility .score-card-top {
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    gap: 10px;
-    padding-right: 12px;
-    border-right: 1px solid rgba(83, 120, 179, 0.16);
-  }
-
-  .score-card.score-card-facility .score-value {
-    font-size: 1.5rem;
-  }
-
-  .score-card.score-card-facility .score-icon-box {
-    width: 36px;
-    height: 36px;
-    font-size: 0.95rem;
-    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
-    color: #FFFFFF;
-    border-color: transparent;
-    box-shadow: 0 4px 10px rgba(83, 120, 179, 0.25);
-  }
-
-  .score-card.score-card-facility .score-meta {
-    min-width: 0;
-  }
-
-  .score-card.score-card-facility .score-unit {
-    font-size: 0.84rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .score-card.score-card-facility .score-label {
-    font-size: 0.72rem;
-  }
-
   .score-card.score-card-facility .score-facility-badge {
-    display: inline-flex;
+    display: none;
   }
 }
 
