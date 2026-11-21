@@ -337,19 +337,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 /* ==========================================================================
-   Top Navigation Bar (White Glassmorphism with Williams Logo & Quick Actions)
+   Top Navigation Bar (Prominent Executive Header with Large Williams Logo)
    ========================================================================== */
 .top-nav-bar {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border-bottom: 1px solid rgba(229, 233, 240, 0.7);
-  box-shadow: 0 4px 20px rgba(15, 30, 51, 0.05);
+  border-bottom: 1px solid rgba(229, 233, 240, 0.85);
+  box-shadow: 0 4px 24px rgba(15, 30, 51, 0.08);
   z-index: 1000;
-  padding: 12px 24px;
+  padding: 16px 36px;
   transition: all var(--transition-normal);
 }
 
@@ -362,42 +362,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .nav-brand-logo {
-  height: 44px;
+  height: 62px;
   width: auto;
-  max-width: 70vw;
+  max-width: min(320px, 65vw);
   object-fit: contain;
   display: block;
-  transition: opacity var(--transition-fast);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .nav-brand-link:hover .nav-brand-logo {
-  opacity: 0.88;
+  opacity: 0.92;
+  transform: scale(1.02);
 }
 
 .nav-quick-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .nav-action-link {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--text-muted);
-  transition: color var(--transition-fast);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .nav-action-link:hover {
   color: var(--brand-blue);
+  background-color: rgba(83, 120, 179, 0.08);
+}
+
+.nav-whatsapp-btn {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  gap: 8px;
+}
+
+.nav-whatsapp-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 992px) {
+  .top-nav-bar {
+    padding: 14px 24px;
+  }
+  .nav-brand-logo {
+    height: 52px;
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 600px) {
   .top-nav-bar {
-    padding: 10px 16px;
+    padding: 12px 16px;
   }
   .nav-brand-logo {
-    height: 36px;
-    max-width: 140px;
+    height: 44px;
+    max-width: 180px;
   }
   .nav-quick-actions {
     gap: 8px;
@@ -406,8 +433,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     display: none;
   }
   .nav-whatsapp-btn {
-    padding: 7px 12px;
-    font-size: 0.75rem;
+    padding: 8px 14px;
+    font-size: 0.78rem;
     gap: 5px;
   }
   .nav-whatsapp-btn svg {
@@ -417,13 +444,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 @media (max-width: 380px) {
+  .top-nav-bar {
+    padding: 10px 12px;
+  }
   .nav-brand-logo {
-    height: 30px;
-    max-width: 115px;
+    height: 38px;
+    max-width: 150px;
   }
   .nav-whatsapp-btn {
     padding: 6px 10px;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
   }
 }
 
