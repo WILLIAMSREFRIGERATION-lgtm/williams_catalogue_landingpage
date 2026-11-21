@@ -394,12 +394,12 @@ window.WILLIAMS_PRODUCTS = [
     badge: 'Hot Selling',
     modelsCount: 9,
     image: 'assets/thumbnails/drop-in-series.jpg',
-    submodelThumbnails: [
-      'assets/products/drop-in/drop-in-refrigerated-well.jpg',
-      'assets/products/drop-in/drop-in-bain-marie.jpg',
-      'assets/products/drop-in/drop-in-cold-well.jpg',
-      'assets/products/drop-in/drop-in-hot-cold-plate.jpg'
-    ],
+    // submodelThumbnails: [
+    //   'assets/products/drop-in/drop-in-refrigerated-well.jpg',
+    //   'assets/products/drop-in/drop-in-bain-marie.jpg',
+    //   'assets/products/drop-in/drop-in-cold-well.jpg',
+    //   'assets/products/drop-in/drop-in-hot-cold-plate.jpg'
+    // ],
     modelsIncluded: [
       'Refrigerated Cold Wells (GN Pans)',
       'Bain Marie Hot Food Wells',

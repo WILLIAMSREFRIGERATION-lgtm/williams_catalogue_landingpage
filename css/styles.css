@@ -2939,7 +2939,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .footer-logo {
   background-color: #FFFFFF;
   padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   margin-bottom: 16px;
   max-width: 190px;
   height: auto;
