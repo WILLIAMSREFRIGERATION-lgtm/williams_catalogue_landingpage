@@ -318,8 +318,8 @@ window.WILLIAMS_PRODUCTS = [
     name: 'Hot/Cold Holding Cabinet',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Hot & Cold Banquet Trolley R290.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Hot & Cold Banquet Trolley R290.pdf',
+    pdfFileName: 'Holding Cabinets_compressed.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
     pdfSizeKB: 1708.7,
     badge: null
   },
@@ -330,7 +330,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'R290 Refrigerated Counter.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/R290 Refrigerated Counter.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1/view?usp=drivesdk',
     pdfSizeKB: 522.2,
     badge: null
   },
@@ -363,7 +363,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'wine chiller.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/wine chiller.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1vvVkLG5T2BDNsogN6bFcUwDeYi1zYrGT/view?usp=drivesdk',
     pdfSizeKB: 562.3,
     badge: null
   },
@@ -475,8 +475,8 @@ var WILLIAMS_DRIVE_LINKS = {
   'refrigerated-cabinets': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
   'chiller': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
   'blast-freezer': '11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8',
-  'hot-cold-holding-cabinet': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
-  'hot-cold-banquet-trolley-r290': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
+  'hot-cold-holding-cabinet': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
+  'hot-cold-banquet-trolley-r290': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
   'r290-refrigerated-counter': '1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1',
   'refrigerated-counter-regular': '1JJu93GJOJ6m3oSbVIINUNs_IKNYFWRMR',
   'back-bar-cooler': '1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd',
@@ -510,7 +510,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=5';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=6';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
