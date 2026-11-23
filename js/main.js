@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Generate direct WhatsApp link with specific product name pre-filled
     var waProductText = encodeURIComponent('Hello Williams Refrigeration, I would like to request pricing and specifications for ' + prod.name + ' (' + prod.categoryLabel + '). Please share details.');
-    var waUrl = 'https://wa.me/919844013768?text=' + waProductText;
+    var waUrl = 'https://wa.me/919901166768?text=' + waProductText;
 
     // Direct Google Drive brochure URL for zero-wait smooth opening
     var catUrl = prod.driveUrl || (prod.driveId ? ('https://drive.google.com/file/d/' + prod.driveId + '/view?usp=drive_link') : '#');
@@ -621,7 +621,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dynamically wire WhatsApp button in PDF viewer with active product name
     var waDocMsg = encodeURIComponent('Hello Williams Refrigeration, I would like to request pricing and specifications for ' + prod.name + ' (' + prod.categoryLabel + '). Please share details.');
-    var waDocHref = 'https://wa.me/919844013768?text=' + waDocMsg;
+    var waDocHref = 'https://wa.me/919901166768?text=' + waDocMsg;
     if (pdfRequestQuoteBtn) {
       pdfRequestQuoteBtn.href = waDocHref;
     }

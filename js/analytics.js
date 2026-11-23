@@ -149,7 +149,7 @@
     trackWhatsAppClick: function (source) {
       this.track('whatsapp_click', {
         cta_location: source || 'direct_whatsapp',
-        phone_number: '+919844013768'
+        phone_number: '+919901166768'
       });
     },
 
@@ -157,7 +157,7 @@
     trackPhoneCallClick: function (source) {
       this.track('phone_call_click', {
         cta_location: source || 'telephone_link',
-        phone_number: '+919844013768'
+        phone_number: '+919901166768'
       });
     }
   };
