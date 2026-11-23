@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ========================================================================== */
   // Clear legacy sessionStorage thumbnail cache so updated authentic covers render fresh
   try {
-    ['sherin', 'stellina', 'drop-in-series', 'chiller', 'refrigerated-cabinets', 'hot-cold-banquet-trolley-r290', 'hot-cold-holding-cabinet', 'wine-chiller', 'r290-refrigerated-counter'].forEach(function (slugKey) {
+    ['sherin', 'stellina', 'drop-in-series', 'chiller', 'refrigerated-cabinets', 'hot-cold-banquet-trolley-r290', 'hot-cold-holding-cabinet', 'wine-chiller', 'r290-refrigerated-counter', 'blast-freezer', 'back-bar-cooler'].forEach(function (slugKey) {
       sessionStorage.removeItem('wm_thumb_' + slugKey);
     });
   } catch (e) {}

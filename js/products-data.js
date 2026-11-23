@@ -295,8 +295,8 @@ window.WILLIAMS_PRODUCTS = [
     name: 'Refrigerated Cabinets',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Refrigerated Cabinet_Regular.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Refrigerated Cabinet_Regular.pdf',
+    pdfFileName: 'R290 Refrigerated Cabinets.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V/view?usp=drivesdk',
     pdfSizeKB: 1145.9,
     badge: null
   },
@@ -307,7 +307,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'Blast Freezer.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Blast Freezer.pdf',
+    pdfPath: 'https://drive.google.com/file/d/11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8/view?usp=drivesdk',
     pdfSizeKB: 1114.8,
     badge: 'Hot Selling'
   },
@@ -340,7 +340,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'Back Bar cooler.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Back Bar cooler.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd/view?usp=drivesdk',
     pdfSizeKB: 1086.1,
     badge: 'Hot Selling'
   },
@@ -472,8 +472,8 @@ var WILLIAMS_DRIVE_LINKS = {
 
   // Refrigeration Cabinet
   'open-deck': '14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ',
-  'refrigerated-cabinets': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
-  'chiller': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
+  'refrigerated-cabinets': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
+  'chiller': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
   'blast-freezer': '11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8',
   'hot-cold-holding-cabinet': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
   'hot-cold-banquet-trolley-r290': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
@@ -510,7 +510,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=6';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=7';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
