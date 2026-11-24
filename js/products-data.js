@@ -83,7 +83,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Shea.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Shea.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Qyohg_TbgHMW6mrrd0Sq6KCcchn6reYY/view?usp=drivesdk',
     pdfSizeKB: 875.7,
     badge: null
   },
@@ -131,7 +131,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'Shannon.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Shannon.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq/view?usp=drivesdk',
     pdfSizeKB: 1476.9,
     badge: null
   },
@@ -210,7 +210,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'Scenic-Prima.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Scenic-Prima.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1mzfK769iKSNpCm4GePRrSI3duR6NWj8z/view?usp=drivesdk',
     pdfSizeKB: 997.5,
     badge: null
   },
@@ -247,7 +247,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Skyler.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Skyler.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1JXB1eguAivNwFU_7MvMFjcYYYb8JIO_-/view?usp=drivesdk',
     pdfSizeKB: 1230.2,
     badge: 'Hot Selling'
   },
@@ -510,7 +510,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=7';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=8';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
