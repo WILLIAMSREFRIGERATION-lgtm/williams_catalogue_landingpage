@@ -52,7 +52,142 @@ window.WILLIAMS_CATEGORIES = [
 
 window.WILLIAMS_PRODUCTS = [
   /* =========================================================================
-     CATEGORY 1: ICE CREAM (6 Models)
+     FEATURED / UPDATED CATALOGUE MODELS (Top Priority in All Equipment)
+     ========================================================================= */
+  {
+    id: 'disp-scenic-prima',
+    slug: 'scenic-prima',
+    name: 'Scenic-Prima',
+    category: 'display-cabinets',
+    categoryLabel: 'Display Cabinet',
+    pdfFileName: 'Scenic-Prima.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1mzfK769iKSNpCm4GePRrSI3duR6NWj8z/view?usp=drivesdk',
+    pdfSizeKB: 997.5,
+    badge: null
+  },
+  {
+    id: 'disp-shannon',
+    slug: 'shannon',
+    name: 'Shannon',
+    category: 'display-cabinets',
+    categoryLabel: 'Display Cabinet',
+    pdfFileName: 'Shannon.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq/view?usp=drivesdk',
+    pdfSizeKB: 1476.9,
+    badge: null
+  },
+  {
+    id: 'conf-skyler',
+    slug: 'skyler',
+    name: 'Skyler',
+    category: 'confectionery',
+    categoryLabel: 'Confectionery',
+    pdfFileName: 'Skyler.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1JXB1eguAivNwFU_7MvMFjcYYYb8JIO_-/view?usp=drivesdk',
+    pdfSizeKB: 1230.2,
+    badge: 'Hot Selling'
+  },
+  {
+    id: 'ice-shea',
+    slug: 'shea',
+    name: 'Shea',
+    category: 'ice-cream',
+    categoryLabel: 'Ice Cream',
+    pdfFileName: 'Shea.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Qyohg_TbgHMW6mrrd0Sq6KCcchn6reYY/view?usp=drivesdk',
+    pdfSizeKB: 875.7,
+    badge: null
+  },
+  {
+    id: 'refrig-chiller',
+    slug: 'refrigerated-cabinets',
+    oldSlug: 'chiller',
+    name: 'Refrigerated Cabinets',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'R290 Refrigerated Cabinets.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V/view?usp=drivesdk',
+    pdfSizeKB: 1145.9,
+    badge: null
+  },
+  {
+    id: 'comm-blast-freezer',
+    slug: 'blast-freezer',
+    name: 'Blast Freezer',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Blast Freezer.pdf',
+    pdfPath: 'https://drive.google.com/file/d/11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8/view?usp=drivesdk',
+    pdfSizeKB: 1114.8,
+    badge: 'Hot Selling'
+  },
+  {
+    id: 'comm-back-bar-cooler',
+    slug: 'back-bar-cooler',
+    name: 'Back Bar Cooler',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Back Bar cooler.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd/view?usp=drivesdk',
+    pdfSizeKB: 1086.1,
+    badge: 'Hot Selling'
+  },
+  {
+    id: 'comm-r290-counter',
+    slug: 'r290-refrigerated-counter',
+    name: 'R290 Refrigerated Counter',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'R290 Refrigerated Counter.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1/view?usp=drivesdk',
+    pdfSizeKB: 522.2,
+    badge: null
+  },
+  {
+    id: 'comm-wine-chiller',
+    slug: 'wine-chiller',
+    name: 'Wine Chiller',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'wine chiller.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1vvVkLG5T2BDNsogN6bFcUwDeYi1zYrGT/view?usp=drivesdk',
+    pdfSizeKB: 562.3,
+    badge: null
+  },
+  {
+    id: 'drop-series',
+    slug: 'drop-in-series',
+    name: 'Drop-In Series',
+    category: 'drop-in-series',
+    categoryLabel: 'Drop In Series',
+    pdfFileName: 'Dropin_Series_New_1 Draft_1.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz/view?usp=sharing',
+    pdfSizeKB: 164374.0,
+    badge: 'Hot Selling',
+    modelsCount: 9,
+    image: 'assets/thumbnails/drop-in-series.jpg',
+    // submodelThumbnails: [
+    //   'assets/products/drop-in/drop-in-refrigerated-well.jpg',
+    //   'assets/products/drop-in/drop-in-bain-marie.jpg',
+    //   'assets/products/drop-in/drop-in-cold-well.jpg',
+    //   'assets/products/drop-in/drop-in-hot-cold-plate.jpg'
+    // ],
+    modelsIncluded: [
+      'Refrigerated Cold Wells (GN Pans)',
+      'Bain Marie Hot Food Wells',
+      'Frost Top Cold Displays',
+      'Ceramic Hot & Cold Plates',
+      'Drop-In Salad & Deli Wells',
+      'Ventilated Showcase Wells',
+      'Dual-Temperature Modules',
+      'Heated Sneeze Guard Counters',
+      'Custom Buffet Drop-In Systems'
+    ],
+    summary: 'Comprehensive 9-model modular drop-in collection featuring cold wells, bain marie, frost tops, ceramic plates & buffet counters'
+  },
+
+  /* =========================================================================
+     CATEGORY 1: ICE CREAM
      ========================================================================= */
   {
     id: 'ice-stella',
@@ -74,17 +209,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Sierra ICD.pdf',
     pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Sierra ICD.pdf',
     pdfSizeKB: 33094.6,
-    badge: null
-  },
-  {
-    id: 'ice-shea',
-    slug: 'shea',
-    name: 'Shea',
-    category: 'ice-cream',
-    categoryLabel: 'Ice Cream',
-    pdfFileName: 'Shea.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1Qyohg_TbgHMW6mrrd0Sq6KCcchn6reYY/view?usp=drivesdk',
-    pdfSizeKB: 875.7,
     badge: null
   },
   {
@@ -122,19 +246,8 @@ window.WILLIAMS_PRODUCTS = [
   },
 
   /* =========================================================================
-     CATEGORY 2: DISPLAY CABINET (Sweets & Namkeens) (8 Models)
+     CATEGORY 2: DISPLAY CABINET (Sweets & Namkeens)
      ========================================================================= */
-  {
-    id: 'disp-shannon',
-    slug: 'shannon',
-    name: 'Shannon',
-    category: 'display-cabinets',
-    categoryLabel: 'Display Cabinet',
-    pdfFileName: 'Shannon.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq/view?usp=drivesdk',
-    pdfSizeKB: 1476.9,
-    badge: null
-  },
   {
     id: 'disp-silya',
     slug: 'silya',
@@ -203,20 +316,9 @@ window.WILLIAMS_PRODUCTS = [
     pdfSizeKB: 1160.1,
     badge: null
   },
-  {
-    id: 'disp-scenic-prima',
-    slug: 'scenic-prima',
-    name: 'Scenic-Prima',
-    category: 'display-cabinets',
-    categoryLabel: 'Display Cabinet',
-    pdfFileName: 'Scenic-Prima.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1mzfK769iKSNpCm4GePRrSI3duR6NWj8z/view?usp=drivesdk',
-    pdfSizeKB: 997.5,
-    badge: null
-  },
 
   /* =========================================================================
-     CATEGORY 3: CONFECTIONERY (Chocolate & Pastries) (5 Models)
+     CATEGORY 3: CONFECTIONERY (Chocolate & Pastries)
      ========================================================================= */
   {
     id: 'conf-sibyl',
@@ -239,17 +341,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sierra Pastry.pdf',
     pdfSizeKB: 44004.0,
     badge: null
-  },
-  {
-    id: 'conf-skyler',
-    slug: 'skyler',
-    name: 'Skyler',
-    category: 'confectionery',
-    categoryLabel: 'Confectionery',
-    pdfFileName: 'Skyler.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1JXB1eguAivNwFU_7MvMFjcYYYb8JIO_-/view?usp=drivesdk',
-    pdfSizeKB: 1230.2,
-    badge: 'Hot Selling'
   },
   {
     id: 'conf-steffania',
@@ -275,7 +366,7 @@ window.WILLIAMS_PRODUCTS = [
   },
 
   /* =========================================================================
-     CATEGORY 4: REFRIGERATION CABINET (9 Models)
+     CATEGORY 4: REFRIGERATION CABINET
      ========================================================================= */
   {
     id: 'refrig-open-deck',
@@ -286,40 +377,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Sidney.pdf',
     pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sidney.pdf',
     pdfSizeKB: 1026.9,
-    badge: null
-  },
-  {
-    id: 'refrig-chiller',
-    slug: 'refrigerated-cabinets',
-    oldSlug: 'chiller',
-    name: 'Refrigerated Cabinets',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'R290 Refrigerated Cabinets.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V/view?usp=drivesdk',
-    pdfSizeKB: 1145.9,
-    badge: null
-  },
-  {
-    id: 'comm-blast-freezer',
-    slug: 'blast-freezer',
-    name: 'Blast Freezer',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Blast Freezer.pdf',
-    pdfPath: 'https://drive.google.com/file/d/11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8/view?usp=drivesdk',
-    pdfSizeKB: 1114.8,
-    badge: 'Hot Selling'
-  },
-  {
-    id: 'comm-r290-counter',
-    slug: 'r290-refrigerated-counter',
-    name: 'R290 Refrigerated Counter',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'R290 Refrigerated Counter.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1/view?usp=drivesdk',
-    pdfSizeKB: 522.2,
     badge: null
   },
   {
@@ -334,28 +391,6 @@ window.WILLIAMS_PRODUCTS = [
     badge: 'Best Value'
   },
   {
-    id: 'comm-back-bar-cooler',
-    slug: 'back-bar-cooler',
-    name: 'Back Bar Cooler',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Back Bar cooler.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd/view?usp=drivesdk',
-    pdfSizeKB: 1086.1,
-    badge: 'Hot Selling'
-  },
-  {
-    id: 'comm-wine-chiller',
-    slug: 'wine-chiller',
-    name: 'Wine Chiller',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'wine chiller.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1vvVkLG5T2BDNsogN6bFcUwDeYi1zYrGT/view?usp=drivesdk',
-    pdfSizeKB: 562.3,
-    badge: null
-  },
-  {
     id: 'comm-dual',
     slug: 'dual',
     name: 'Dual Temp Cabinet',
@@ -365,41 +400,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Dual.pdf',
     pdfSizeKB: 373.1,
     badge: null
-  },
-
-  /* =========================================================================
-     CATEGORY 5: DROP IN (Complete 9-Model Series Collection)
-     ========================================================================= */
-  {
-    id: 'drop-series',
-    slug: 'drop-in-series',
-    name: 'Drop-In Series',
-    category: 'drop-in-series',
-    categoryLabel: 'Drop In Series',
-    pdfFileName: 'Dropin_Series_New_1 Draft_1.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz/view?usp=sharing',
-    pdfSizeKB: 164374.0,
-    badge: 'Hot Selling',
-    modelsCount: 9,
-    image: 'assets/thumbnails/drop-in-series.jpg',
-    // submodelThumbnails: [
-    //   'assets/products/drop-in/drop-in-refrigerated-well.jpg',
-    //   'assets/products/drop-in/drop-in-bain-marie.jpg',
-    //   'assets/products/drop-in/drop-in-cold-well.jpg',
-    //   'assets/products/drop-in/drop-in-hot-cold-plate.jpg'
-    // ],
-    modelsIncluded: [
-      'Refrigerated Cold Wells (GN Pans)',
-      'Bain Marie Hot Food Wells',
-      'Frost Top Cold Displays',
-      'Ceramic Hot & Cold Plates',
-      'Drop-In Salad & Deli Wells',
-      'Ventilated Showcase Wells',
-      'Dual-Temperature Modules',
-      'Heated Sneeze Guard Counters',
-      'Custom Buffet Drop-In Systems'
-    ],
-    summary: 'Comprehensive 9-model modular drop-in collection featuring cold wells, bain marie, frost tops, ceramic plates & buffet counters'
   },
   {
     id: 'comm-hot-cold-banquet-trolley',
