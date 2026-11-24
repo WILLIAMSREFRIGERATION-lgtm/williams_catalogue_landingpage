@@ -55,6 +55,18 @@ window.WILLIAMS_PRODUCTS = [
      FEATURED / UPDATED CATALOGUE MODELS (Top Priority in All Equipment)
      ========================================================================= */
   {
+    id: 'comm-hot-cold-banquet-trolley',
+    slug: 'hot-cold-holding-cabinet',
+    oldSlug: 'hot-cold-banquet-trolley-r290',
+    name: 'Hot/Cold Holding Cabinet',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Holding Cabinets_compressed.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
+    pdfSizeKB: 1708.7,
+    badge: null
+  },
+  {
     id: 'disp-scenic-prima',
     slug: 'scenic-prima',
     name: 'Scenic-Prima',
@@ -399,18 +411,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfFileName: 'Dual.pdf',
     pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Dual.pdf',
     pdfSizeKB: 373.1,
-    badge: null
-  },
-  {
-    id: 'comm-hot-cold-banquet-trolley',
-    slug: 'hot-cold-holding-cabinet',
-    oldSlug: 'hot-cold-banquet-trolley-r290',
-    name: 'Hot/Cold Holding Cabinet',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Holding Cabinets_compressed.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
-    pdfSizeKB: 1708.7,
     badge: null
   }
 ];
