@@ -25,7 +25,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'display-cabinets',
     name: 'Display Cabinet',
     folderName: 'Display Cabinets',
-    productCount: 7
+    productCount: 6
   },
   {
     id: 'refrigeration-cabinat',
@@ -46,7 +46,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'confectionery',
     name: 'Confectionery',
     folderName: 'Display Cabinets',
-    productCount: 5
+    productCount: 4
   }
 ];
 
@@ -384,17 +384,6 @@ window.WILLIAMS_PRODUCTS = [
     badge: null
   },
   {
-    id: 'disp-slavia',
-    slug: 'slavia',
-    name: 'Slavia',
-    category: 'display-cabinets',
-    categoryLabel: 'Display Cabinet',
-    pdfFileName: 'Slavia.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1REpUrmYBfRN2iGFIMlCGox25lA6P9DTM/view?usp=drivesdk',
-    pdfSizeKB: 1746.3,
-    badge: null
-  },
-  {
     id: 'disp-stellarsphire',
     slug: 'stellarsphire',
     name: 'StellarSphire',
@@ -409,17 +398,6 @@ window.WILLIAMS_PRODUCTS = [
   /* =========================================================================
      CATEGORY 3: CONFECTIONERY (Chocolate & Pastries)
      ========================================================================= */
-  {
-    id: 'conf-sibyl',
-    slug: 'sibyl',
-    name: 'Sibyl',
-    category: 'confectionery',
-    categoryLabel: 'Confectionery',
-    pdfFileName: 'Sibyl.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1BadkRVdlw8fNLeZiNWagW0K_31qonHRv/view?usp=drivesdk',
-    pdfSizeKB: 821.6,
-    badge: 'Best Value'
-  },
   {
     id: 'conf-sierra-pastry',
     slug: 'sierra-pastry',
@@ -487,12 +465,10 @@ var WILLIAMS_PAGE_COUNTS = {
   'sherin': 8,
   'stellina': 8,
   'stellar': 8,
-  'slavia': 8,
   'stellarsphire': 8,
   'scenic-prima': 8,
 
-  // Confectionery (5 models)
-  'sibyl': 8,
+  // Confectionery (4 models)
   'sierra-pastry': 8,
   'skyler': 8,
   'steffania': 8,
@@ -552,12 +528,10 @@ var WILLIAMS_DRIVE_LINKS = {
   'scenic-prima': '1mzfK769iKSNpCm4GePRrSI3duR6NWj8z',
   'shannon': '1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq',
   'silya': '1_fkRZoFsXAIN3CnKZgRwkGtBeLM19258',
-  'slavia': '1REpUrmYBfRN2iGFIMlCGox25lA6P9DTM',
   'stellar': '1c_ftgSRdd3PYGoyKcl6PrOEm7jHB-_jF',
   'stellarsphire': '1Wr2S7e6iDFZyoJ_ssLwVw3D6AGaes3dx',
 
   // Confectionery
-  'sibyl': '1BadkRVdlw8fNLeZiNWagW0K_31qonHRv',
   'sierra-pastry': '1pGdkQv5petWijHjDu5RFmlcGR-S8F1YK',
   'skyler': '1JXB1eguAivNwFU_7MvMFjcYYYb8JIO_-',
   'steffania': '1eo_nxe4HaqKimTHKlbelJy1oDCaVpopv',
