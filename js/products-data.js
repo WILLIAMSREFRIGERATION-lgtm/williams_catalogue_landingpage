@@ -25,7 +25,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'display-cabinets',
     name: 'Display Cabinet',
     folderName: 'Display Cabinets',
-    productCount: 6
+    productCount: 7
   },
   {
     id: 'refrigeration-cabinat',
@@ -285,7 +285,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Sierra ICD.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1Hw8TIFHq7BTrZweMZA_mjmA39jc7IjHw/view?usp=drivesdk',
+    pdfPath: 'https://drive.google.com/file/d/1bI2c7z5PavWjYlLBc-49I0HsAKyEqEok/view?usp=drivesdk',
     pdfSizeKB: 33094.6,
     badge: null
   },
@@ -327,13 +327,24 @@ window.WILLIAMS_PRODUCTS = [
      CATEGORY 2: DISPLAY CABINET (Sweets & Namkeens)
      ========================================================================= */
   {
+    id: 'disp-serenity',
+    slug: 'serenity',
+    name: 'Serenity',
+    category: 'display-cabinets',
+    categoryLabel: 'Display Cabinet',
+    pdfFileName: 'Serenity.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1O5Qn35ojH1QQ_UMhwjwqUMlJCNMB3GOt/view?usp=drivesdk',
+    pdfSizeKB: 1050.0,
+    badge: null
+  },
+  {
     id: 'disp-silya',
     slug: 'silya',
     name: 'Silya',
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'silya.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/silya.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1_fkRZoFsXAIN3CnKZgRwkGtBeLM19258/view?usp=drivesdk',
     pdfSizeKB: 1073.0,
     badge: null
   },
@@ -368,7 +379,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'stellar.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/stellar.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1c_ftgSRdd3PYGoyKcl6PrOEm7jHB-_jF/view?usp=drivesdk',
     pdfSizeKB: 997.6,
     badge: null
   },
@@ -379,7 +390,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'Slavia.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Slavia.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1REpUrmYBfRN2iGFIMlCGox25lA6P9DTM/view?usp=drivesdk',
     pdfSizeKB: 1746.3,
     badge: null
   },
@@ -390,7 +401,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
     pdfFileName: 'StellarSphire.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/StellarSphire.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Wr2S7e6iDFZyoJ_ssLwVw3D6AGaes3dx/view?usp=drivesdk',
     pdfSizeKB: 1160.1,
     badge: null
   },
@@ -405,7 +416,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Sibyl.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sibyl.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1BadkRVdlw8fNLeZiNWagW0K_31qonHRv/view?usp=drivesdk',
     pdfSizeKB: 821.6,
     badge: 'Best Value'
   },
@@ -416,7 +427,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Sierra Pastry.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sierra Pastry.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1pGdkQv5petWijHjDu5RFmlcGR-S8F1YK/view?usp=drivesdk',
     pdfSizeKB: 44004.0,
     badge: null
   },
@@ -427,7 +438,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Steffania.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Steffania.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1eo_nxe4HaqKimTHKlbelJy1oDCaVpopv/view?usp=drivesdk',
     pdfSizeKB: 1219.9,
     badge: null
   },
@@ -453,7 +464,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
     pdfFileName: 'Sidney.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sidney.pdf',
+    pdfPath: 'https://drive.google.com/file/d/14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ/view?usp=drivesdk',
     pdfSizeKB: 1026.9,
     badge: null
   }
@@ -469,7 +480,8 @@ var WILLIAMS_PAGE_COUNTS = {
   'smart': 6,
   'snowgel': 6,
 
-  // Display Cabinet (8 models)
+  // Display Cabinet (9 models)
+  'serenity': 8,
   'shannon': 8,
   'silya': 8,
   'sherin': 8,
@@ -536,6 +548,7 @@ var WILLIAMS_DRIVE_LINKS = {
   'thawing-cabinets': '1IGso8FCsa4V9p4vvQFeBgaJ6ICQgQRib',
 
   // Display Cabinet
+  'serenity': '1O5Qn35ojH1QQ_UMhwjwqUMlJCNMB3GOt',
   'scenic-prima': '1mzfK769iKSNpCm4GePRrSI3duR6NWj8z',
   'shannon': '1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq',
   'silya': '1_fkRZoFsXAIN3CnKZgRwkGtBeLM19258',
@@ -553,7 +566,7 @@ var WILLIAMS_DRIVE_LINKS = {
   // Ice Cream
   'shea': '1Qyohg_TbgHMW6mrrd0Sq6KCcchn6reYY',
   'shiloh': '10bYtNnimNhNrXbLbUURmhUHTOCZpeHqd',
-  'sierra-icd': '1Hw8TIFHq7BTrZweMZA_mjmA39jc7IjHw',
+  'sierra-icd': '1bI2c7z5PavWjYlLBc-49I0HsAKyEqEok',
   'smart': '1VfKogWqvWrPuBN-Y__H1NtuexNEjlkQN',
   'snowgel': '1rKmcoWOZuoFc8QDFOvB3v675coDvSCZJ',
   'stella': '1akrjAC-h1vVVdmk_2POZhQ-9mD1zoUsL'
@@ -562,7 +575,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=11';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=12';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
