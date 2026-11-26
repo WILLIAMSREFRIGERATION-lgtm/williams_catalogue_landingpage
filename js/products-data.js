@@ -32,7 +32,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'refrigeration-cabinat',
     name: 'Refrigeration Cabinet',
     folderName: 'Commercial Refrigerations',
-    productCount: 9
+    productCount: 13
   },
   {
     id: 'drop-in-series',
@@ -61,8 +61,8 @@ window.WILLIAMS_PRODUCTS = [
     name: 'Hot/Cold Holding Cabinet',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Holding Cabinets_compressed.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8/view?usp=drivesdk',
+    pdfFileName: 'Hot & Cold Banquet Trolley R290.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr/view?usp=drivesdk',
     pdfSizeKB: 1708.7,
     badge: null
   },
@@ -161,9 +161,75 @@ window.WILLIAMS_PRODUCTS = [
     name: 'Wine Chiller',
     category: 'refrigeration-cabinat',
     categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'wine chiller.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1vvVkLG5T2BDNsogN6bFcUwDeYi1zYrGT/view?usp=drivesdk',
+    pdfFileName: 'Wine Chillers.pdf',
+    pdfPath: 'https://drive.google.com/file/d/13jS2_DhwHlDr89WR91UCdKszLe8khBGU/view?usp=drivesdk',
     pdfSizeKB: 562.3,
+    badge: null
+  },
+  {
+    id: 'comm-dual',
+    slug: 'dual',
+    name: 'Dual Temp Cabinet',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Dual Temp.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1PXl4mTpwX5ECf2I5mVAP-35e73Z-u5Fv/view?usp=drivesdk',
+    pdfSizeKB: 373.1,
+    badge: null
+  },
+  {
+    id: 'comm-pan-cooler',
+    slug: 'pan-cooler',
+    name: 'Pan Cooler',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Pan cooler.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1j550dvidyinlslyAV1dsz0Yr5bZG1xeS/view?usp=drivesdk',
+    pdfSizeKB: 950.0,
+    badge: null
+  },
+  {
+    id: 'comm-prep-stations',
+    slug: 'prep-stations',
+    name: 'Prep Stations',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Prep Stations.pdf',
+    pdfPath: 'https://drive.google.com/file/d/15Vq4-gUDeqx4R2yJYvHrHjmq_Nww8Fl9/view?usp=drivesdk',
+    pdfSizeKB: 950.0,
+    badge: 'Best Value'
+  },
+  {
+    id: 'comm-cabinet-regular',
+    slug: 'refrigerated-cabinet-regular',
+    name: 'Refrigerated Cabinet - Regular',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Refrigerated Cabinet_Regular.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn/view?usp=drivesdk',
+    pdfSizeKB: 1145.9,
+    badge: null
+  },
+  {
+    id: 'comm-counter-regular',
+    slug: 'refrigerated-counter-regular',
+    name: 'Refrigerated Counter - Regular',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Refrigerated Counter-Regular.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1JJu93GJOJ6m3oSbVIINUNs_IKNYFWRMR/view?usp=drivesdk',
+    pdfSizeKB: 1407.7,
+    badge: 'Best Value'
+  },
+  {
+    id: 'comm-thawing-cabinets',
+    slug: 'thawing-cabinets',
+    name: 'Thawing Cabinets',
+    category: 'refrigeration-cabinat',
+    categoryLabel: 'Refrigeration Cabinet',
+    pdfFileName: 'Thawing  Cabinets.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1IGso8FCsa4V9p4vvQFeBgaJ6ICQgQRib/view?usp=drivesdk',
+    pdfSizeKB: 950.0,
     badge: null
   },
   {
@@ -390,28 +456,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfPath: 'assets/View Digital Catalogue/Display Cabinets/Sidney.pdf',
     pdfSizeKB: 1026.9,
     badge: null
-  },
-  {
-    id: 'comm-counter-regular',
-    slug: 'refrigerated-counter-regular',
-    name: 'Refrigerated Counter - Regular',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Refrigerated Counter-Regular.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Refrigerated Counter-Regular.pdf',
-    pdfSizeKB: 1407.7,
-    badge: 'Best Value'
-  },
-  {
-    id: 'comm-dual',
-    slug: 'dual',
-    name: 'Dual Temp Cabinet',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Dual.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Commercial Refrigerations/Dual.pdf',
-    pdfSizeKB: 373.1,
-    badge: null
   }
 ];
 
@@ -442,10 +486,11 @@ var WILLIAMS_PAGE_COUNTS = {
   'steffania': 8,
   'sonnet': 8,
 
-  // Refrigeration Cabinet (9 models)
+  // Refrigeration Cabinet (13 models)
   'open-deck': 8,
   'refrigerated-cabinets': 12,
   'chiller': 12,
+  'refrigerated-cabinet-regular': 12,
   'blast-freezer': 8,
   'hot-cold-holding-cabinet': 10,
   'hot-cold-banquet-trolley-r290': 10,
@@ -454,6 +499,9 @@ var WILLIAMS_PAGE_COUNTS = {
   'back-bar-cooler': 8,
   'wine-chiller': 12,
   'dual': 8,
+  'pan-cooler': 8,
+  'prep-stations': 8,
+  'thawing-cabinets': 8,
 
   // Drop In Series (1 model)
   'drop-in-series': 30
@@ -474,14 +522,18 @@ var WILLIAMS_DRIVE_LINKS = {
   'open-deck': '14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ',
   'refrigerated-cabinets': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
   'chiller': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
+  'refrigerated-cabinet-regular': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
   'blast-freezer': '11xfPrWGiPUj4lc-2bI-9MC4dEAHX3Qc8',
-  'hot-cold-holding-cabinet': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
-  'hot-cold-banquet-trolley-r290': '1DINe-waM1uR4BrGJZoZQMFIqpmXv2sk8',
+  'hot-cold-holding-cabinet': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
+  'hot-cold-banquet-trolley-r290': '1-uwZ0PJx94IIx3_l8-MIFqZwnfqLJtTr',
   'r290-refrigerated-counter': '1fiyCCTycPCPvAjI6xUlj-IoP8mVU7FK1',
   'refrigerated-counter-regular': '1JJu93GJOJ6m3oSbVIINUNs_IKNYFWRMR',
   'back-bar-cooler': '1wL-hkj62PACfCFF1E4NKAKApwZ1OMjAd',
-  'wine-chiller': '1vvVkLG5T2BDNsogN6bFcUwDeYi1zYrGT',
-  'dual': '1yJ1bSu7OphcZSWF67q8A7knNiPZPSVX-',
+  'wine-chiller': '13jS2_DhwHlDr89WR91UCdKszLe8khBGU',
+  'dual': '1PXl4mTpwX5ECf2I5mVAP-35e73Z-u5Fv',
+  'pan-cooler': '1j550dvidyinlslyAV1dsz0Yr5bZG1xeS',
+  'prep-stations': '15Vq4-gUDeqx4R2yJYvHrHjmq_Nww8Fl9',
+  'thawing-cabinets': '1IGso8FCsa4V9p4vvQFeBgaJ6ICQgQRib',
 
   // Display Cabinet
   'scenic-prima': '1mzfK769iKSNpCm4GePRrSI3duR6NWj8z',
@@ -510,7 +562,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=8';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=9';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
