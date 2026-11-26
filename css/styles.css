@@ -626,17 +626,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     display: none !important;
   }
 
-  /* Position buttons directly below the video: Explore + Watch side-by-side, Fast Response below */
+  /* Position buttons directly below the video: clean full-width stacked CTAs */
   .hero-bottom-actions {
     position: relative;
     bottom: auto;
     left: auto;
     right: auto;
     width: 100%;
-    padding: 14px 14px 22px;
+    padding: 16px 16px 22px;
     background: linear-gradient(180deg, #0F1E33 0%, #0B1626 100%);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
     box-sizing: border-box;
     z-index: 5;
@@ -645,37 +646,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-bottom-actions .btn {
     width: 100%;
     max-width: none;
+    min-height: 48px;
     box-sizing: border-box;
-    border-radius: var(--radius-md);
+    border-radius: 12px;
     margin: 0;
   }
 
-  /* Button 1: Explore Catalogue (Left side) */
+  /* Button 1: Explore Catalogue */
   #heroExploreCta {
-    grid-column: 1 / 2;
-    padding: 12px 6px;
-    font-size: 0.875rem;
+    padding: 13px 18px;
+    font-size: 0.9375rem;
     font-weight: 600;
     text-align: center;
     justify-content: center;
     white-space: nowrap;
   }
 
-  /* Button 2: Watch Stories (Right side) */
+  /* Button 2: Watch Stories (Hidden when disabled) */
   #heroReviewsCta {
-    grid-column: 2 / 3;
-    padding: 12px 6px;
-    font-size: 0.875rem;
+    padding: 13px 18px;
+    font-size: 0.9375rem;
     font-weight: 600;
     text-align: center;
     justify-content: center;
     white-space: nowrap;
   }
 
-  /* Button 3: WhatsApp Fast Response (Full width below) */
+  /* Button 3: WhatsApp Fast Response */
   #heroWhatsappCta {
-    grid-column: 1 / -1;
-    padding: 13px 16px;
+    padding: 13px 18px;
     font-size: 0.9375rem;
     font-weight: 600;
     text-align: center;
@@ -4219,6 +4218,212 @@ textarea.form-control {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   12. Comprehensive Mobile UI/UX Overrides (Cascade-Safe)
+   ========================================================================== */
+section[id],
+footer[id] {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 768px) {
+  section[id],
+  footer[id] {
+    scroll-margin-top: 72px;
+  }
+
+  /* Legacy Section Mobile Polish */
+  .legacy-section {
+    padding: 44px 0;
+  }
+  .legacy-grid {
+    gap: 28px;
+  }
+  .legacy-lead {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .legacy-body {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .legacy-quote-card {
+    padding: 14px 16px;
+    margin-top: 18px;
+    margin-bottom: 14px;
+  }
+  .legacy-quote-card p {
+    font-size: 0.875rem;
+  }
+  .legacy-motto-banner {
+    font-size: 0.875rem;
+    padding: 12px 14px;
+    text-align: center;
+  }
+
+  /* Footer Mobile Contact Cards & Touch Targets */
+  .minimal-footer {
+    padding: 40px 0 24px;
+  }
+  .footer-inner {
+    gap: 28px;
+    padding-bottom: 24px;
+  }
+  .footer-logo {
+    max-width: 170px;
+    margin-bottom: 14px;
+  }
+  .footer-social-links {
+    gap: 10px;
+  }
+  .social-icon-btn {
+    width: 42px;
+    height: 42px;
+  }
+  .footer-contacts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .footer-contact-link {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    min-height: 44px;
+    width: 100%;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Equal-Height 2x2 Score Cards */
+  .score-card {
+    height: 100%;
+    justify-content: space-between;
+  }
+  .score-meta {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Balanced 3-Column Trusted Clients Grid */
+  .clients-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 16px 12px;
+  }
+  .client-logo-item img {
+    height: 26px;
+    max-width: 96px;
+  }
+
+  /* Catalogue Search & Tabs (Fixes Cascade Order + Prevents iOS Auto-Zoom) */
+  .catalogue-search-bar-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .catalogue-search-wrap {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  .catalogue-search-input {
+    font-size: 16px; /* Prevents iOS Safari zoom on focus */
+    padding: 11px 40px 11px 42px;
+    border-radius: 12px;
+    min-height: 44px;
+  }
+  .catalogue-results-count {
+    font-size: 0.78rem;
+    text-align: center;
+  }
+  .category-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 16px 10px;
+    margin: 0 -16px 18px;
+    gap: 8px;
+  }
+  .tab-btn {
+    min-height: 38px;
+    padding: 7px 13px;
+    font-size: 0.8125rem;
+  }
+
+  /* Product Card Mobile Touch Targets & Proportions */
+  .product-action-link,
+  .product-whatsapp-btn {
+    min-height: 36px;
+    height: 36px;
+  }
+  .catalogue-cta-wrap {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+  .catalogue-cta-wrap .btn {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  /* PDF Viewer Header Actions (Fixes Cascade Override) */
+  .pdf-header-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .pdf-share-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 9px;
+    justify-content: center;
+  }
+  .pdf-share-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-brand-logo {
+    height: 40px;
+    max-width: 160px;
+  }
+  .nav-whatsapp-btn {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    min-height: 38px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-brand-logo {
+    height: 36px;
+    max-width: 138px;
+  }
+  .nav-whatsapp-btn {
+    padding: 7px 10px;
+    font-size: 0.7rem;
+  }
+  .product-action-link,
+  .product-whatsapp-btn {
+    min-height: 34px;
+    height: 34px;
   }
 }
 
