@@ -562,7 +562,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=10';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=11';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
