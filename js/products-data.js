@@ -32,7 +32,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'refrigeration-cabinat',
     name: 'Refrigeration Cabinet',
     folderName: 'Commercial Refrigerations',
-    productCount: 13
+    productCount: 12
   },
   {
     id: 'drop-in-series',
@@ -395,14 +395,14 @@ window.WILLIAMS_PRODUCTS = [
     badge: null
   },
   {
-    id: 'disp-stellarsphire',
-    slug: 'stellarsphire',
-    name: 'StellarSphire',
+    id: 'disp-sidney',
+    slug: 'sidney',
+    name: 'Sidney',
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
-    pdfFileName: 'StellarSphire.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1Wr2S7e6iDFZyoJ_ssLwVw3D6AGaes3dx/view?usp=drivesdk',
-    pdfSizeKB: 1160.1,
+    pdfFileName: 'Sidney.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1UETnSednCGXTA2vZKJIZgHs6HcJARE_a/view?usp=drivesdk',
+    pdfSizeKB: 1026.9,
     badge: null
   },
 
@@ -441,21 +441,6 @@ window.WILLIAMS_PRODUCTS = [
     pdfPath: 'https://drive.google.com/file/d/1FS5D06MPUA7vNaDoXPy5xXd5po2LOj4V/view?usp=drivesdk',
     pdfSizeKB: 453.9,
     badge: null
-  },
-
-  /* =========================================================================
-     CATEGORY 4: REFRIGERATION CABINET
-     ========================================================================= */
-  {
-    id: 'refrig-open-deck',
-    slug: 'open-deck',
-    name: 'Open Deck',
-    category: 'refrigeration-cabinat',
-    categoryLabel: 'Refrigeration Cabinet',
-    pdfFileName: 'Sidney.pdf',
-    pdfPath: 'https://drive.google.com/file/d/14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ/view?usp=drivesdk',
-    pdfSizeKB: 1026.9,
-    badge: null
   }
 ];
 
@@ -477,7 +462,7 @@ var WILLIAMS_PAGE_COUNTS = {
   'stellina': 8,
   'stellar': 8,
   'stellar-tower': 8,
-  'stellarsphire': 8,
+  'sidney': 8,
   'scenic-prima': 8,
 
   // Confectionery (4 models)
@@ -486,8 +471,7 @@ var WILLIAMS_PAGE_COUNTS = {
   'steffania': 8,
   'sonnet': 8,
 
-  // Refrigeration Cabinet (13 models)
-  'open-deck': 8,
+  // Refrigeration Cabinet (12 models)
   'refrigerated-cabinets': 12,
   'chiller': 12,
   'refrigerated-cabinet-regular': 12,
@@ -519,7 +503,6 @@ var WILLIAMS_DRIVE_LINKS = {
   'drop-in-series': '1-awLFxfBA3lR0qEajycbBqmS_nFfXzkz',
 
   // Refrigeration Cabinet
-  'open-deck': '14iFNiVNVx3xO03xOgvzTytGZ-H4v41YJ',
   'refrigerated-cabinets': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
   'chiller': '1ePHKyqHGOBId5frxY_4BNDp02yWh8y6V',
   'refrigerated-cabinet-regular': '1EpCbSNJVEqOS8m3ACKBWh6OsWl8iPtZn',
@@ -542,7 +525,7 @@ var WILLIAMS_DRIVE_LINKS = {
   'silya': '1_fkRZoFsXAIN3CnKZgRwkGtBeLM19258',
   'stellar': '1Dk2qicHG0E1lOJlPLcB1aNSv9Q9tl2Y-',
   'stellar-tower': '13-IVxYYkZ1_Ck7ZZkZp8EaDgpNNgdH1u',
-  'stellarsphire': '1Wr2S7e6iDFZyoJ_ssLwVw3D6AGaes3dx',
+  'sidney': '1UETnSednCGXTA2vZKJIZgHs6HcJARE_a',
 
   // Confectionery
   'sierra-pastry': '1pGdkQv5petWijHjDu5RFmlcGR-S8F1YK',
@@ -562,7 +545,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=13';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=14';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
