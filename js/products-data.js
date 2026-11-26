@@ -25,7 +25,7 @@ window.WILLIAMS_CATEGORIES = [
     slug: 'display-cabinets',
     name: 'Display Cabinet',
     folderName: 'Display Cabinets',
-    productCount: 6
+    productCount: 7
   },
   {
     id: 'refrigeration-cabinat',
@@ -378,9 +378,20 @@ window.WILLIAMS_PRODUCTS = [
     name: 'Stellar',
     category: 'display-cabinets',
     categoryLabel: 'Display Cabinet',
-    pdfFileName: 'stellar.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1c_ftgSRdd3PYGoyKcl6PrOEm7jHB-_jF/view?usp=drivesdk',
+    pdfFileName: 'Stellar.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Dk2qicHG0E1lOJlPLcB1aNSv9Q9tl2Y-/view?usp=drivesdk',
     pdfSizeKB: 997.6,
+    badge: null
+  },
+  {
+    id: 'disp-stellar-tower',
+    slug: 'stellar-tower',
+    name: 'Stellar Tower',
+    category: 'display-cabinets',
+    categoryLabel: 'Display Cabinet',
+    pdfFileName: 'Stellar Tower.pdf',
+    pdfPath: 'https://drive.google.com/file/d/13-IVxYYkZ1_Ck7ZZkZp8EaDgpNNgdH1u/view?usp=drivesdk',
+    pdfSizeKB: 1050.0,
     badge: null
   },
   {
@@ -427,7 +438,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Sonnet.pdf',
-    pdfPath: 'https://drive.google.com/file/d/1Nlsl7UZ-foMrSKpvcruuBiXB4fAVfhAc/view?usp=drivesdk',
+    pdfPath: 'https://drive.google.com/file/d/1FS5D06MPUA7vNaDoXPy5xXd5po2LOj4V/view?usp=drivesdk',
     pdfSizeKB: 453.9,
     badge: null
   },
@@ -465,6 +476,7 @@ var WILLIAMS_PAGE_COUNTS = {
   'sherin': 8,
   'stellina': 8,
   'stellar': 8,
+  'stellar-tower': 8,
   'stellarsphire': 8,
   'scenic-prima': 8,
 
@@ -528,14 +540,15 @@ var WILLIAMS_DRIVE_LINKS = {
   'scenic-prima': '1mzfK769iKSNpCm4GePRrSI3duR6NWj8z',
   'shannon': '1tUKPXEKcqpp0flWrPXIpPWyA8Yxhfbkq',
   'silya': '1_fkRZoFsXAIN3CnKZgRwkGtBeLM19258',
-  'stellar': '1c_ftgSRdd3PYGoyKcl6PrOEm7jHB-_jF',
+  'stellar': '1Dk2qicHG0E1lOJlPLcB1aNSv9Q9tl2Y-',
+  'stellar-tower': '13-IVxYYkZ1_Ck7ZZkZp8EaDgpNNgdH1u',
   'stellarsphire': '1Wr2S7e6iDFZyoJ_ssLwVw3D6AGaes3dx',
 
   // Confectionery
   'sierra-pastry': '1pGdkQv5petWijHjDu5RFmlcGR-S8F1YK',
   'skyler': '1JXB1eguAivNwFU_7MvMFjcYYYb8JIO_-',
   'steffania': '1eo_nxe4HaqKimTHKlbelJy1oDCaVpopv',
-  'sonnet': '1Nlsl7UZ-foMrSKpvcruuBiXB4fAVfhAc',
+  'sonnet': '1FS5D06MPUA7vNaDoXPy5xXd5po2LOj4V',
 
   // Ice Cream
   'shea': '1Qyohg_TbgHMW6mrrd0Sq6KCcchn6reYY',
@@ -549,7 +562,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=12';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=13';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 

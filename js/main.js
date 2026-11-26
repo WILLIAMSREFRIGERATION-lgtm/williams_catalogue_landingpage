@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
      ========================================================================== */
   // Clear legacy sessionStorage thumbnail cache so updated authentic covers render fresh
   try {
-    ['sherin', 'stellina', 'drop-in-series', 'chiller', 'refrigerated-cabinets', 'refrigerated-cabinet-regular', 'hot-cold-banquet-trolley-r290', 'hot-cold-holding-cabinet', 'wine-chiller', 'r290-refrigerated-counter', 'refrigerated-counter-regular', 'blast-freezer', 'back-bar-cooler', 'scenic-prima', 'shannon', 'skyler', 'shea', 'dual', 'pan-cooler', 'prep-stations', 'thawing-cabinets', 'stella', 'sonnet', 'smart', 'snowgel', 'sierra-icd', 'shiloh', 'stellarsphire', 'steffania', 'stellar', 'sierra-pastry', 'silya', 'slavia', 'sibyl', 'open-deck', 'serenity'].forEach(function (slugKey) {
+    ['sherin', 'stellina', 'drop-in-series', 'chiller', 'refrigerated-cabinets', 'refrigerated-cabinet-regular', 'hot-cold-banquet-trolley-r290', 'hot-cold-holding-cabinet', 'wine-chiller', 'r290-refrigerated-counter', 'refrigerated-counter-regular', 'blast-freezer', 'back-bar-cooler', 'scenic-prima', 'shannon', 'skyler', 'shea', 'dual', 'pan-cooler', 'prep-stations', 'thawing-cabinets', 'stella', 'sonnet', 'smart', 'snowgel', 'sierra-icd', 'shiloh', 'stellarsphire', 'steffania', 'stellar', 'stellar-tower', 'sierra-pastry', 'silya', 'slavia', 'sibyl', 'open-deck', 'serenity'].forEach(function (slugKey) {
       sessionStorage.removeItem('wm_thumb_' + slugKey);
     });
   } catch (e) {}
