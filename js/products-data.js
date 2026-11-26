@@ -274,7 +274,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Stella.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Stella.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1akrjAC-h1vVVdmk_2POZhQ-9mD1zoUsL/view?usp=drivesdk',
     pdfSizeKB: 893.2,
     badge: 'Hot Selling'
   },
@@ -285,7 +285,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Sierra ICD.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Sierra ICD.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Hw8TIFHq7BTrZweMZA_mjmA39jc7IjHw/view?usp=drivesdk',
     pdfSizeKB: 33094.6,
     badge: null
   },
@@ -296,7 +296,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'shiloh.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/shiloh.pdf',
+    pdfPath: 'https://drive.google.com/file/d/10bYtNnimNhNrXbLbUURmhUHTOCZpeHqd/view?usp=drivesdk',
     pdfSizeKB: 955.9,
     badge: null
   },
@@ -307,7 +307,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Smart.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Smart.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1VfKogWqvWrPuBN-Y__H1NtuexNEjlkQN/view?usp=drivesdk',
     pdfSizeKB: 785.5,
     badge: 'Best Value'
   },
@@ -318,7 +318,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'ice-cream',
     categoryLabel: 'Ice Cream',
     pdfFileName: 'Snowgel.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Snowgel.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1rKmcoWOZuoFc8QDFOvB3v675coDvSCZJ/view?usp=drivesdk',
     pdfSizeKB: 1318.7,
     badge: null
   },
@@ -438,7 +438,7 @@ window.WILLIAMS_PRODUCTS = [
     category: 'confectionery',
     categoryLabel: 'Confectionery',
     pdfFileName: 'Sonnet.pdf',
-    pdfPath: 'assets/View Digital Catalogue/Ice Cream Display/Sonnet.pdf',
+    pdfPath: 'https://drive.google.com/file/d/1Nlsl7UZ-foMrSKpvcruuBiXB4fAVfhAc/view?usp=drivesdk',
     pdfSizeKB: 453.9,
     badge: null
   },
@@ -562,7 +562,7 @@ var WILLIAMS_DRIVE_LINKS = {
 if (window.WILLIAMS_PRODUCTS && Array.isArray(window.WILLIAMS_PRODUCTS)) {
   window.WILLIAMS_PRODUCTS.forEach(function (prod) {
     if (!prod.image) {
-      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=9';
+      prod.image = 'assets/thumbnails/' + prod.slug + '.jpg?v=10';
     }
     prod.pageCount = WILLIAMS_PAGE_COUNTS[prod.slug] || 8;
 
